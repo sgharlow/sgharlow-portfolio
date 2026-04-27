@@ -1,10 +1,39 @@
 @import "tailwindcss";
 
-@theme {
-  --font-display: var(--font-display, 'Inter Tight'), system-ui, sans-serif;
-  --font-mono: var(--font-mono, 'JetBrains Mono'), ui-monospace, monospace;
+:root {
+  --color-background-primary: #fefefc;
+  --color-background-secondary: #f5f4ef;
+  --color-text-primary: #1a1917;
+  --color-text-secondary: #4a4944;
+  --color-text-tertiary: #888780;
+  --color-border-tertiary: #e3e1d9;
+  --color-border-secondary: #c8c5bb;
+  --color-border-info: #378ADD;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono-loaded, "JetBrains Mono"), "SF Mono", Menlo, monospace;
 }
 
-body { font-family: var(--font-display); }
-.font-display { font-family: var(--font-display); }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background-primary: #1a1917;
+    --color-background-secondary: #25241f;
+    --color-text-primary: #fefefc;
+    --color-text-secondary: #b8b6ad;
+    --color-text-tertiary: #888780;
+    --color-border-tertiary: #3a3833;
+    --color-border-secondary: #5a584f;
+  }
+}
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+
+body {
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
 .font-mono { font-family: var(--font-mono); }

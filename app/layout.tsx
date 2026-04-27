@@ -1,30 +1,28 @@
 import type { Metadata } from 'next';
-import { Inter_Tight, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { TopNav } from '@/components/TopNav';
-import { FooterMonetizationBand } from '@/components/FooterMonetizationBand';
-import { loadEnrichedProjectsFile } from '@/lib/projects';
 
-const display = Inter_Tight({ subsets: ['latin'], variable: '--font-display' });
-const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
+const sans = Inter({ subsets: ['latin'], variable: '--font-sans-loaded' });
+const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono-loaded' });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.learningai365.com';
 
 export const metadata: Metadata = {
-  title: 'sgharlow — AI learning portfolio',
-  description: 'Portfolio of AI learning projects, hackathons, and writing by sgharlow.',
+  title: 'sgharlow — the lab',
+  description: 'AI learning projects — agents, MCP servers, products, research, tooling.',
   metadataBase: new URL(SITE_URL),
   openGraph: { type: 'website', url: SITE_URL, siteName: 'sgharlow' },
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const file = await loadEnrichedProjectsFile();
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${display.variable} ${mono.variable} bg-zinc-950 text-white antialiased min-h-screen flex flex-col`}>
-        <TopNav />
-        <div className="flex-1">{children}</div>
-        <FooterMonetizationBand entries={file.entries} />
+    <html lang="en">
+      <body className={`${sans.variable} ${mono.variable} antialiased`}>
+        <div className="max-w-6xl mx-auto px-6 py-5">
+          <TopNav />
+          {children}
+        </div>
       </body>
     </html>
   );
