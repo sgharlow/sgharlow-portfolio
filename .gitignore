@@ -47,5 +47,9 @@ next-env.d.ts
 # playwright persistent context for hero-image generation (contains Google login cookies)
 /.pw-data/
 
+# playwright test artifacts (screenshots, traces, videos from failed runs)
+/test-results/
+/playwright-report/
+
 .vercel
 .env*.local
