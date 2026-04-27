@@ -3,15 +3,41 @@ import Link from 'next/link';
 
 export function TopNav(): ReactElement {
   return (
-    <nav className="border-b border-white/10 bg-black/30">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-display text-white">sgharlow</Link>
-        <div className="flex items-center gap-6 text-sm text-white/70">
-          <Link href="/" className="hover:text-white">Today</Link>
-          <Link href="/grid" className="hover:text-white">All projects</Link>
-          <Link href="/shop" className="hover:text-white">Shop</Link>
-          <a href="https://github.com/sgharlow" target="_blank" rel="noreferrer" className="hover:text-white">GitHub</a>
-        </div>
+    <nav
+      className="flex items-center justify-between pb-5 mb-5"
+      style={{ borderBottom: '0.5px solid var(--color-border-tertiary)' }}
+    >
+      <div className="flex items-baseline gap-[10px]">
+        <Link
+          href="/"
+          className="text-[14px] font-medium"
+          style={{
+            color: 'var(--color-text-primary)',
+            fontFamily: 'var(--font-sans)',
+          }}
+        >
+          sgharlow
+        </Link>
+        <span className="font-mono text-[11px]" style={{ color: '#D85A30' }}>
+          // the lab
+        </span>
+      </div>
+      <div
+        className="flex items-center gap-5 text-[13px]"
+        style={{ color: 'var(--color-text-secondary)' }}
+      >
+        <Link href="/" className="hover:underline" style={{ textUnderlineOffset: 2 }}>
+          projects
+        </Link>
+        <a
+          href="https://github.com/sgharlow"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline"
+          style={{ textUnderlineOffset: 2 }}
+        >
+          github
+        </a>
       </div>
     </nav>
   );
