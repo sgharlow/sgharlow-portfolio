@@ -12,6 +12,8 @@ import { loadProjectsFile } from '../lib/projects';
 
 // ---------- exported helpers (testable) ----------
 
+const MONTH_LABELS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
 export function formatRelative(iso: string, now: Date = new Date()): string {
   const ms = now.getTime() - new Date(iso).getTime();
   const days = Math.floor(ms / 86_400_000);
@@ -19,6 +21,12 @@ export function formatRelative(iso: string, now: Date = new Date()): string {
   if (days < 30) return `${Math.floor(days / 7)}w ago`;
   if (days < 365) return `${Math.floor(days / 30)}mo ago`;
   return `${Math.floor(days / 365)}y ago`;
+}
+
+/** Format an ISO date as `"MMM YYYY"` lowercase, e.g. "apr 2026". */
+export function formatMonthYear(iso: string): string {
+  const d = new Date(iso);
+  return `${MONTH_LABELS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 }
 
 export function computeActivityScore(
@@ -32,37 +40,29 @@ export function computeActivityScore(
   return Math.floor((now.getTime() - Math.max(...candidates)) / 86_400_000);
 }
 
-export function deriveStatus(
-  category: ProjectEntry['category'],
-  statusOverride: string | undefined,
+/**
+ * derivedUpdated formats `lastCommitAt` (or vercel `lastDeploymentAt` as fallback)
+ * as a relative-time string for the card footer. If older than ~30 days we switch
+ * to a `"MMM YYYY"` label. If no enrichment data is available, returns the entry's
+ * static `updated` field.
+ */
+export function deriveUpdated(
+  entryUpdated: string,
   github: { lastCommitAt: string } | undefined,
   vercel: { lastDeploymentAt: string } | undefined,
   now: Date = new Date(),
 ): string {
-  if (statusOverride) return statusOverride;
-
   const lastSignal = [github?.lastCommitAt, vercel?.lastDeploymentAt]
-    .filter(Boolean)
+    .filter((v): v is string => Boolean(v))
     .sort()
     .at(-1);
 
-  if (lastSignal) {
-    const labels: Record<ProjectEntry['category'], string> = {
-      active: 'Active',
-      frozen: 'Frozen',
-      experiment: 'Experiment',
-      product: 'Product',
-    };
-    const verb = github?.lastCommitAt ? 'last commit' : 'last deploy';
-    return `${labels[category]} — ${verb} ${formatRelative(lastSignal, now)}`;
-  }
+  if (!lastSignal) return entryUpdated;
 
-  return {
-    active: 'Active',
-    frozen: 'Frozen / archived',
-    experiment: 'Experiment',
-    product: 'Product',
-  }[category];
+  const ms = now.getTime() - new Date(lastSignal).getTime();
+  const days = Math.floor(ms / 86_400_000);
+  if (days < 30) return formatRelative(lastSignal, now);
+  return formatMonthYear(lastSignal);
 }
 
 // ---------- API fetchers ----------
@@ -156,15 +156,17 @@ async function enrichEntry(
   vercelTeamId: string,
 ): Promise<EnrichedProjectEntry> {
   const github = entry.links.githubRepo ? await fetchGithub(entry.links.githubRepo, ghToken) : undefined;
+  // Skip vercel for book-like entries — heuristic: stack contains "book"
+  const isBook = entry.stack.includes('book');
   const vercel =
-    entry.links.deployedSite && entry.kind !== 'book'
+    entry.links.deployedSite && !isBook
       ? await fetchVercel(entry.slug, vercelToken, vercelTeamId)
       : undefined;
 
-  const derivedStatus = deriveStatus(entry.category, entry.statusOverride, github, vercel);
+  const derivedUpdated = deriveUpdated(entry.updated, github, vercel);
   const activityScore = computeActivityScore({ github, vercel });
 
-  return { ...entry, enriched: { github, vercel, derivedStatus, activityScore } };
+  return { ...entry, enriched: { github, vercel, derivedUpdated, activityScore } };
 }
 
 async function main(): Promise<void> {
@@ -185,7 +187,7 @@ async function main(): Promise<void> {
       entries: file.entries.map((e) => ({
         ...e,
         enriched: {
-          derivedStatus: deriveStatus(e.category, e.statusOverride, undefined, undefined),
+          derivedUpdated: deriveUpdated(e.updated, undefined, undefined),
           activityScore: Number.MAX_SAFE_INTEGER,
         },
       })),
@@ -214,9 +216,7 @@ async function main(): Promise<void> {
 }
 
 // Detect direct execution. On Windows, import.meta.url is `file:///C:/...` and
-// process.argv[1] is `C:\...`; we normalize both sides for comparison. We also
-// just always run main() when this file is the entry point, which `tsx` makes
-// it via the `prebuild` script.
+// process.argv[1] is `C:\...`; we normalize both sides for comparison.
 const argvPath = process.argv[1]?.replaceAll('\\', '/') ?? '';
 const argvUrl = argvPath.startsWith('/') ? `file://${argvPath}` : `file:///${argvPath}`;
 if (import.meta.url === argvUrl) {

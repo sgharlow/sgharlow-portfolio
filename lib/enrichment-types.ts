@@ -1,17 +1,11 @@
-export type Category = 'active' | 'frozen' | 'experiment' | 'product';
+// Spectrum Lab category enum (taxonomy-as-category)
+export type Category = 'agents' | 'mcp' | 'product' | 'research' | 'tooling';
 
-export type ProjectKind =
-  | 'web-app'
-  | 'cli'
-  | 'mcp-server'
-  | 'chrome-ext'
-  | 'reddit-game'
-  | 'library'
-  | 'book'
-  | 'course-platform';
+// Spectrum Lab status enum (separate from category)
+export type Status = 'active' | 'in progress' | 'shipped' | 'experiment' | 'archived';
 
+// Same as before
 export type HackathonStatus = 'submitted' | 'finalist' | 'won' | 'active';
-
 export type ProductKind = 'kindle' | 'lemonsqueezy' | 'gumroad' | 'other';
 
 export interface HackathonLink {
@@ -29,37 +23,31 @@ export interface ProductLink {
 
 export interface ProjectLinks {
   deployedSite?: string;
-  githubRepo?: string;
+  githubRepo?: string; // "owner/repo"
   youtubeVideo?: string;
   hackathon?: HackathonLink[];
   products?: ProductLink[];
 }
 
-export interface ProjectSpotlight {
-  longDescription: string;
-  callToAction?: { label: string; url: string };
-  overrideDates?: string[];
-}
-
 export interface ProjectEntry {
   slug: string;
+  id: string; // sequential, e.g. "#01" — set by remap script ordered by category then slug
   name: string;
-  tagline: string;
-  summary: string;
+  tagline: string; // ≤80 chars; surfaces as card description (line-clamp 2)
+  summary: string; // 2-3 sentences for detail page body
   category: Category;
-  kind: ProjectKind;
-  heroImage: string | null;
-  heroImagePrompt: string;
-  order?: number;
+  status: Status;
+  stack: string[]; // 2-4 tech-stack tags
+  updated: string; // "2d ago" / "apr 2026" — set by enrichment script when github data available, else fallback
+  heroImage: string | null; // detail page only; null → no image on detail
+  heroImagePrompt: string; // unchanged from before; used for generating detail-page heroes (NOT card heroes)
   links: ProjectLinks;
-  statusOverride?: string;
-  spotlight?: ProjectSpotlight;
+  order?: number; // optional manual sort; default = id order
 }
 
 export interface ProjectsFile {
-  version: 1;
+  version: 2; // BUMP from 1 — schema breaking change
   generatedAt?: string;
-  spotlightLaunchDate: string;
   entries: ProjectEntry[];
 }
 
@@ -84,7 +72,7 @@ export interface VercelEnrichment {
 export interface EnrichmentBlock {
   github?: GithubEnrichment;
   vercel?: VercelEnrichment;
-  derivedStatus: string;
+  derivedUpdated: string; // formats lastCommitAt for display in the card footer
   activityScore: number;
 }
 

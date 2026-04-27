@@ -1,5 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { deriveStatus, computeActivityScore, formatRelative } from '@/scripts/enrich-projects';
+import {
+  computeActivityScore,
+  deriveUpdated,
+  formatMonthYear,
+  formatRelative,
+} from '@/scripts/enrich-projects';
 
 describe('formatRelative', () => {
   beforeEach(() => {
@@ -12,6 +17,13 @@ describe('formatRelative', () => {
     expect(formatRelative('2026-04-12T00:00:00Z')).toBe('2w ago');
     expect(formatRelative('2026-01-26T00:00:00Z')).toBe('3mo ago');
     expect(formatRelative('2024-04-26T00:00:00Z')).toBe('2y ago');
+  });
+});
+
+describe('formatMonthYear', () => {
+  it('renders an ISO date as lowercase "MMM YYYY"', () => {
+    expect(formatMonthYear('2026-04-26T00:00:00Z')).toBe('apr 2026');
+    expect(formatMonthYear('2025-12-01T00:00:00Z')).toBe('dec 2025');
   });
 });
 
@@ -35,25 +47,25 @@ describe('computeActivityScore', () => {
   });
 });
 
-describe('deriveStatus', () => {
+describe('deriveUpdated', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2026-04-26T00:00:00Z'));
   });
 
-  it('honors statusOverride first', () => {
-    expect(deriveStatus('active', 'Custom override', undefined, undefined)).toBe('Custom override');
+  it('falls back to the static "updated" string when no enrichment is available', () => {
+    expect(deriveUpdated('apr 2026', undefined, undefined)).toBe('apr 2026');
   });
 
-  it('formats from github lastCommit when no override', () => {
-    expect(
-      deriveStatus('active', undefined, { lastCommitAt: '2026-04-23T00:00:00Z' }, undefined),
-    ).toBe('Active — last commit 3d ago');
+  it('formats recent github lastCommit as "Nd ago"', () => {
+    expect(deriveUpdated('apr 2026', { lastCommitAt: '2026-04-23T00:00:00Z' }, undefined)).toBe(
+      '3d ago',
+    );
   });
 
-  it('falls back to category-only string when no enrichment', () => {
-    expect(deriveStatus('frozen', undefined, undefined, undefined)).toBe('Frozen / archived');
-    expect(deriveStatus('experiment', undefined, undefined, undefined)).toBe('Experiment');
-    expect(deriveStatus('product', undefined, undefined, undefined)).toBe('Product');
+  it('formats older github lastCommit as "MMM YYYY"', () => {
+    expect(deriveUpdated('apr 2026', { lastCommitAt: '2026-01-26T00:00:00Z' }, undefined)).toBe(
+      'jan 2026',
+    );
   });
 });

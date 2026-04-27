@@ -1,5 +1,5 @@
 interface UtmParams {
-  medium: 'hover-popup' | 'modal' | 'spotlight' | 'grid-card' | 'footer-band' | 'shop' | 'top-nav';
+  medium: 'grid-card' | 'modal' | 'top-nav';
   campaign: string;
 }
 
