@@ -44,3 +44,6 @@ next-env.d.ts
 # build-time enrichment output
 /data/projects.enriched.json
 
+
+.vercel
+.env*.local
