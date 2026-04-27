@@ -116,17 +116,48 @@ async function generateOneImage(context, entry) {
 
     // Wait for an <img> to appear in the response.
     // Gemini renders generated images inside the latest model-response block.
-    // Heuristic: after submitting, wait for any new <img alt*="image" or src starting with data: or http(s)://...> below the prompt area.
-    const imgLocator = page.locator(
-      'img[alt*="image" i], img[alt*="generated" i], img[src^="data:image"], img[src*="googleusercontent"], img[src*="storage.googleapis"]',
-    ).last();
+    // EXCLUDE: profile pictures (header avatar) and other UI chrome.
+    // Strategy: wait for a *large* image inside a model-response container.
+    const imgLocator = page.locator([
+      // Generated images typically have alt that mentions "image" or "generated" but NOT "profile"
+      'img[alt*="generated" i]:not([alt*="profile" i]):not([class*="user-icon"])',
+      // Or src on data: URIs (data:image/...)
+      'img[src^="data:image"]:not([class*="user-icon"])',
+      // Or hosted on Google content storage but explicitly NOT the avatar (avatar URL contains /a/ACg8oc... and ends with -c-v1-rj or similar)
+      'img[src*="googleusercontent.com"]:not([src*="/a/"]):not([class*="user-icon"]):not([alt*="profile" i])',
+      'img[src*="storage.googleapis.com"]:not([class*="user-icon"])',
+    ].join(', ')).last();
+
+    // Wait for the image to appear AND have meaningful dimensions (>200px wide).
+    // This protects against thumbnails / icons that might match.
     await imgLocator.waitFor({ state: 'visible', timeout: PER_ENTRY_TIMEOUT_MS });
+
+    // Verify the matched element is a real generated image, not a small UI element.
+    // If width < 200px, wait longer for the actual image to render.
+    const startWait = Date.now();
+    while (Date.now() - startWait < 30_000) {
+      const dims = await imgLocator.evaluate((el) => ({
+        w: el.naturalWidth || el.width,
+        h: el.naturalHeight || el.height,
+      })).catch(() => ({ w: 0, h: 0 }));
+      if (dims.w >= 200 && dims.h >= 200) break;
+      await page.waitForTimeout(2000);
+    }
 
     // Give Gemini a couple seconds to finalize streaming the image.
     await page.waitForTimeout(POST_GENERATE_DELAY_MS);
 
     const src = await imgLocator.getAttribute('src');
     if (!src) throw new Error('image element has no src');
+
+    // Final dimension check; bail if still tiny (likely matched the wrong element)
+    const finalDims = await imgLocator.evaluate((el) => ({
+      w: el.naturalWidth || el.width,
+      h: el.naturalHeight || el.height,
+    })).catch(() => ({ w: 0, h: 0 }));
+    if (finalDims.w < 200 || finalDims.h < 200) {
+      throw new Error(`matched image too small (${finalDims.w}x${finalDims.h}) — likely UI element, not generated image`);
+    }
 
     // Fetch the image bytes. Gemini sometimes uses data: URIs and sometimes remote URLs.
     // Use the page's fetch() so cookies/auth ride along for remote URLs.

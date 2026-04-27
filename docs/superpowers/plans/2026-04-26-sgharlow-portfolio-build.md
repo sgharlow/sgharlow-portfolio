@@ -4,9 +4,11 @@
 
 **Goal:** Build a new public portfolio site at `www.learningai365.com` that aggregates sgharlow's AI learning projects (GitHub repos, Vercel deployments, hackathons, books) with a daily-rotating "spotlight" project on the homepage, and migrate the existing learningai content to `training.learningai365.com`.
 
-**Architecture:** Greenfield Next.js 15 + React 19 + TypeScript + Tailwind v4 app. Curated `data/projects.json` is the source of truth; build-time enrichment script calls GitHub + Vercel APIs to derive status fields. Static-first with ISR (1h spotlight, 6h elsewhere). No DB, no auth, no CMS. Deployed on a new Vercel project; existing `learningai365` Vercel project gets renamed to `learningai365-training` at cutover.
+**Architecture:** Greenfield Next.js 16 + React 19 + TypeScript + Tailwind v4 app. Curated `data/projects.json` is the source of truth; build-time enrichment script calls GitHub + Vercel APIs to derive status fields. Static-first with ISR (1h spotlight, 6h elsewhere). No DB, no auth, no CMS. Deployed on a new Vercel project; existing `learningai365` Vercel project gets renamed to `learningai365-training` at cutover.
 
-**Tech Stack:** Next.js 15, React 19, TypeScript, Tailwind v4, Vitest, Playwright, gh CLI, Vercel CLI, GitHub REST API, Vercel REST API.
+**Tech Stack:** Next.js 16, React 19, TypeScript, Tailwind v4, Vitest 4, Playwright, gh CLI, Vercel CLI, GitHub REST API, Vercel REST API.
+
+**Note on Next.js version:** Plan was originally drafted as Next.js 15. Task 1's `create-next-app@latest` installed Next 16.2.4, which is what your other production sites already run (justicewatch, insight-exit per MEMORY). Next 16 is the actual stack. Subsequent tasks may need minor adjustments where Next 16 deviates from 15 conventions; flag any such drift during implementation.
 
 **Spec:** `docs/superpowers/specs/2026-04-26-learningai365-pivot-design.md`
 
