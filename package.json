@@ -1,12 +1,18 @@
 {
-  "name": "portfolio",
+  "name": "sgharlow-portfolio",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/enrich-projects.ts",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "list-prompts": "tsx scripts/list-image-prompts.ts"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
