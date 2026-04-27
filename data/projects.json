@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "spotlightLaunchDate": "2026-04-26",
+  "entries": [
+    {
+      "slug": "health-pulse",
+      "name": "HealthPulse AI",
+      "tagline": "Healthcare performance MCP server.",
+      "summary": "MCP server that gives AI agents structured access to healthcare performance data. Submitted to Agents Assemble.",
+      "category": "active",
+      "kind": "mcp-server",
+      "heroImage": null,
+      "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic. Style: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces. Composition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right. Subject: a stylized heart-rate ECG line transforming into a network of connected nodes, with a translucent shield motif suggesting healthcare data integrity. Mood: vigilant, precise.",
+      "links": {
+        "deployedSite": "https://web-umber-alpha-41.vercel.app",
+        "githubRepo": "sgharlow/health-pulse",
+        "hackathon": [
+          { "name": "Agents Assemble", "status": "submitted", "prize": "$25K pool" }
+        ]
+      },
+      "spotlight": {
+        "longDescription": "HealthPulse AI is an MCP server that exposes healthcare performance metrics to AI agents through a structured tool interface. Built for the Agents Assemble hackathon, it demonstrates how MCP can bridge AI assistants and clinical reporting workflows."
+      }
+    },
+    {
+      "slug": "comment-conspiracy",
+      "name": "Comment Conspiracy",
+      "tagline": "Reddit Devvit game — spot the AI comment.",
+      "summary": "Daily Reddit game built on Devvit where players guess which comment in a thread was written by AI. Submitted to Reddit Games & Puzzles 2026.",
+      "category": "frozen",
+      "kind": "reddit-game",
+      "heroImage": null,
+      "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic. Style: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces. Composition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right. Subject: a tangled web of comment-bubble shapes connected by red string like a conspiracy board, with one bubble glowing as the real one. Mood: playful, suspicious.",
+      "links": {
+        "githubRepo": "sgharlow/comment-conspiracy",
+        "hackathon": [
+          { "name": "Reddit Games & Puzzles 2026", "status": "submitted" }
+        ]
+      },
+      "spotlight": {
+        "longDescription": "Comment Conspiracy is a Devvit-powered daily Reddit game. Each post presents a thread of comments, one of which was AI-generated; players have to spot the imposter. Submitted to the Reddit Games & Puzzles 2026 hackathon."
+      }
+    },
+    {
+      "slug": "ender-ai-leadership",
+      "name": "Ender AI Leadership",
+      "tagline": "Strategy book on AI-augmented leadership.",
+      "summary": "Book exploring how leaders can adopt AI augmentation without losing strategic clarity.",
+      "category": "product",
+      "kind": "book",
+      "heroImage": null,
+      "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic. Style: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on electric blue, NO text, NO logos, NO faces. Composition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right. Subject: a stylized chess king piece dissolving at the edges into networked light particles, suggesting strategic command transmuted into AI-augmented decision-making. Mood: contemplative, decisive.",
+      "links": {
+        "products": [
+          { "label": "Buy on Amazon", "url": "https://example.com/TODO-replace-with-amazon-asin", "kind": "kindle" }
+        ]
+      }
+    }
+  ]
+}
