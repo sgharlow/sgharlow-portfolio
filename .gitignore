@@ -44,6 +44,8 @@ next-env.d.ts
 # build-time enrichment output
 /data/projects.enriched.json
 
+# playwright persistent context for hero-image generation (contains Google login cookies)
+/.pw-data/
 
 .vercel
 .env*.local
