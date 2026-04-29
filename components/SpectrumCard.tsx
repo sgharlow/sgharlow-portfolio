@@ -15,10 +15,12 @@ export function SpectrumCard({ entry }: { entry: EnrichedProjectEntry }): ReactE
 
   return (
     <article
-      className="grid grid-cols-[36px_1fr] overflow-hidden rounded-xl"
+      data-category={entry.category}
+      className="spectrum-card grid grid-cols-[36px_1fr] overflow-hidden rounded-xl"
       style={{
         background: 'var(--color-background-primary)',
         border: '0.5px solid var(--color-border-tertiary)',
+        transition: 'border-color 180ms ease, transform 180ms ease',
       }}
     >
       <Rail category={entry.category} />
@@ -141,6 +143,9 @@ function collectFooterLinks(entry: EnrichedProjectEntry): { label: string; url: 
   }
   if (entry.links.githubRepo) {
     out.push({ label: 'repo', url: `https://github.com/${entry.links.githubRepo}` });
+  }
+  if (entry.links.spec) {
+    out.push({ label: 'spec', url: entry.links.spec });
   }
   // For products, include the first product purchase link
   const product = entry.links.products?.[0];

@@ -37,3 +37,13 @@ body {
   font-family: var(--font-sans);
 }
 .font-mono { font-family: var(--font-mono); }
+
+/* Card hover — promote the category accent from the rail to the border, no shadow per spec */
+.spectrum-card[data-category="agents"]:hover   { border-color: rgba(83,  74, 183, 0.55); }
+.spectrum-card[data-category="mcp"]:hover      { border-color: rgba(29, 158, 117, 0.55); }
+.spectrum-card[data-category="product"]:hover  { border-color: rgba(216, 90,  48, 0.55); }
+.spectrum-card[data-category="research"]:hover { border-color: rgba(212, 83, 126, 0.55); }
+.spectrum-card[data-category="tooling"]:hover  { border-color: rgba(55, 138, 221, 0.55); }
+@media (prefers-reduced-motion: no-preference) {
+  .spectrum-card:hover { transform: translateY(-1px); }
+}
