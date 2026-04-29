@@ -6,6 +6,7 @@ import { DetailHero } from '@/components/DetailHero';
 import { Rail } from '@/components/Rail';
 import { StatusPill } from '@/components/StatusPill';
 import { TechStackTag } from '@/components/TechStackTag';
+import { HackathonBadges } from '@/components/HackathonBadge';
 import type { EnrichedProjectEntry } from '@/lib/enrichment-types';
 import { appendUtm } from '@/lib/links';
 
@@ -48,6 +49,40 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return { title: `${entry.name} — sgharlow`, description: entry.tagline };
 }
 
+interface DetailLink {
+  label: string;
+  url: string;
+}
+
+function collectDetailLinks(entry: EnrichedProjectEntry): DetailLink[] {
+  const out: DetailLink[] = [];
+  if (entry.links.deployedSite) {
+    out.push({
+      label: 'live',
+      url: appendUtm(entry.links.deployedSite, { medium: 'modal', campaign: entry.slug }),
+    });
+  }
+  if (entry.links.githubRepo) {
+    out.push({ label: 'repo', url: `https://github.com/${entry.links.githubRepo}` });
+  }
+  if (entry.links.youtubeVideo) {
+    out.push({
+      label: 'video',
+      url: appendUtm(entry.links.youtubeVideo, { medium: 'modal', campaign: entry.slug }),
+    });
+  }
+  if (entry.links.spec) {
+    out.push({ label: 'spec', url: entry.links.spec });
+  }
+  for (const p of entry.links.products ?? []) {
+    out.push({
+      label: p.label,
+      url: appendUtm(p.url, { medium: 'modal', campaign: entry.slug }),
+    });
+  }
+  return out;
+}
+
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
   const file = await loadEnrichedProjectsFile();
@@ -55,6 +90,7 @@ export default async function ProjectPage({ params }: PageProps) {
   if (!entry) notFound();
 
   const jsonLd = buildCreativeWorkJsonLd(entry);
+  const links = collectDetailLinks(entry);
 
   return (
     <main>
@@ -71,15 +107,15 @@ export default async function ProjectPage({ params }: PageProps) {
       </Link>
 
       <article
-        className="mt-5 grid grid-cols-[36px_1fr] overflow-hidden rounded-xl"
+        className="mt-3 grid grid-cols-[36px_1fr] overflow-hidden rounded-xl"
         style={{
           background: 'var(--color-background-primary)',
           border: '0.5px solid var(--color-border-tertiary)',
         }}
       >
         <Rail category={entry.category} />
-        <div className="px-6 py-6">
-          <header className="flex items-center justify-between mb-3">
+        <div className="px-5 py-4 sm:px-6 sm:py-5">
+          <header className="flex items-center gap-3 mb-2 flex-wrap">
             <StatusPill status={entry.status} />
             <span
               className="font-mono text-[10px]"
@@ -87,145 +123,83 @@ export default async function ProjectPage({ params }: PageProps) {
             >
               {entry.id}
             </span>
+            <span
+              className="font-mono text-[10px]"
+              style={{ color: 'var(--color-text-tertiary)' }}
+              aria-hidden
+            >
+              ·
+            </span>
+            <span
+              className="font-mono text-[10px]"
+              style={{ color: 'var(--color-text-tertiary)' }}
+            >
+              updated {entry.enriched.derivedUpdated || entry.updated}
+            </span>
+            {links.length > 0 ? (
+              <>
+                <span
+                  className="font-mono text-[10px]"
+                  style={{ color: 'var(--color-text-tertiary)' }}
+                  aria-hidden
+                >
+                  ·
+                </span>
+                <span className="flex flex-wrap items-center gap-3">
+                  {links.map((l) => (
+                    <a
+                      key={l.url}
+                      href={l.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[12px] hover:underline"
+                      style={{
+                        color: 'var(--color-text-secondary)',
+                        fontFamily: 'var(--font-sans)',
+                      }}
+                    >
+                      {l.label} ↗
+                    </a>
+                  ))}
+                </span>
+              </>
+            ) : null}
           </header>
 
           <h1
-            className="text-[26px] font-medium m-0 mb-2"
+            className="text-[24px] font-medium m-0 mb-1"
             style={{ letterSpacing: '-0.01em' }}
           >
             {entry.name}
           </h1>
           <p
-            className="text-[14px] m-0 mb-6"
+            className="text-[14px] m-0 mb-4"
             style={{ color: 'var(--color-text-secondary)' }}
           >
             {entry.tagline}
           </p>
 
-          <div className="flex flex-col md:flex-row gap-6 mb-6">
+          <div className="flex flex-col md:flex-row gap-5 mb-4">
             <DetailHero slug={entry.slug} name={entry.name} heroImage={entry.heroImage} />
             <div
-              className="text-[14px] flex-1"
-              style={{ color: 'var(--color-text-secondary)', lineHeight: 1.6 }}
+              className="text-[14px] flex-1 min-w-0"
+              style={{ color: 'var(--color-text-secondary)', lineHeight: 1.55 }}
             >
               {entry.summary.split('\n\n').map((p, i) => (
-                <p key={i} className="mb-4">
+                <p key={i} className="mb-3 last:mb-0">
                   {p}
                 </p>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-[6px] mb-6">
+          <div className="flex flex-wrap gap-[6px] mb-3">
             {entry.stack.map((t) => (
               <TechStackTag key={t} label={t} category={entry.category} />
             ))}
           </div>
 
-          <footer
-            className="flex items-center justify-between pt-3 mt-3"
-            style={{
-              borderTop: '0.5px solid var(--color-border-tertiary)',
-              color: 'var(--color-text-tertiary)',
-              fontFamily: 'var(--font-mono)',
-              fontSize: 10,
-            }}
-          >
-            <span>updated {entry.enriched.derivedUpdated || entry.updated}</span>
-            <span>
-              {entry.links.deployedSite && (
-                <a
-                  href={appendUtm(entry.links.deployedSite, {
-                    medium: 'modal',
-                    campaign: entry.slug,
-                  })}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ml-3 text-[12px]"
-                  style={{
-                    color: 'var(--color-text-secondary)',
-                    fontFamily: 'var(--font-sans)',
-                  }}
-                >
-                  live ↗
-                </a>
-              )}
-              {entry.links.githubRepo && (
-                <a
-                  href={`https://github.com/${entry.links.githubRepo}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ml-3 text-[12px]"
-                  style={{
-                    color: 'var(--color-text-secondary)',
-                    fontFamily: 'var(--font-sans)',
-                  }}
-                >
-                  repo ↗
-                </a>
-              )}
-              {entry.links.youtubeVideo && (
-                <a
-                  href={appendUtm(entry.links.youtubeVideo, {
-                    medium: 'modal',
-                    campaign: entry.slug,
-                  })}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ml-3 text-[12px]"
-                  style={{
-                    color: 'var(--color-text-secondary)',
-                    fontFamily: 'var(--font-sans)',
-                  }}
-                >
-                  video ↗
-                </a>
-              )}
-              {entry.links.spec && (
-                <a
-                  href={entry.links.spec}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ml-3 text-[12px]"
-                  style={{
-                    color: 'var(--color-text-secondary)',
-                    fontFamily: 'var(--font-sans)',
-                  }}
-                >
-                  spec ↗
-                </a>
-              )}
-              {entry.links.products?.map((p, i) => (
-                <a
-                  key={i}
-                  href={appendUtm(p.url, { medium: 'modal', campaign: entry.slug })}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ml-3 text-[12px]"
-                  style={{
-                    color: 'var(--color-text-secondary)',
-                    fontFamily: 'var(--font-sans)',
-                  }}
-                >
-                  {p.label} ↗
-                </a>
-              ))}
-            </span>
-          </footer>
-
-          {entry.links.hackathon?.length ? (
-            <div
-              className="mt-3 font-mono text-[10px]"
-              style={{ color: 'var(--color-text-tertiary)' }}
-            >
-              {entry.links.hackathon.map((h, i) => (
-                <span key={i} className="mr-3">
-                  hackathon: {h.name} ({h.status}
-                  {h.prize ? ` · ${h.prize}` : ''})
-                </span>
-              ))}
-            </div>
-          ) : null}
+          <HackathonBadges items={entry.links.hackathon} />
         </div>
       </article>
     </main>

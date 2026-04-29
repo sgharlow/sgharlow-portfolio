@@ -1,6 +1,7 @@
 import type { ReactElement } from 'react';
 import Link from 'next/link';
 import type { Category, Status } from '@/lib/enrichment-types';
+import { ToolbarMobileToggle } from './ToolbarMobileToggle';
 
 export type SortMode = 'id' | 'updated' | 'stars';
 
@@ -62,13 +63,20 @@ function chip(active: boolean): React.CSSProperties {
   };
 }
 
-function divider(): React.CSSProperties {
-  return {
-    width: 1,
-    height: 16,
-    background: 'var(--color-border-tertiary)',
-    margin: '0 4px',
-  };
+const dividerStyle: React.CSSProperties = {
+  width: 1,
+  height: 16,
+  background: 'var(--color-border-tertiary)',
+  margin: '0 4px',
+};
+
+function activeSummary(filter: 'all' | Category, status: 'all' | Status, sort: SortMode): string {
+  const parts: string[] = [];
+  if (filter !== 'all') parts.push(filter);
+  if (status !== 'all') parts.push(status);
+  if (sort !== 'id') parts.push(sort);
+  if (parts.length === 0) return 'filters';
+  return `filters · ${parts.join(' / ')}`;
 }
 
 export function Toolbar({ filter, status, sort, baseQuery }: ToolbarProps): ReactElement {
@@ -77,6 +85,7 @@ export function Toolbar({ filter, status, sort, baseQuery }: ToolbarProps): Reac
       className="flex flex-wrap items-center gap-1.5 mb-4 pb-3"
       style={{ borderBottom: '0.5px dashed var(--color-border-tertiary)' }}
     >
+      {/* Category chips — always visible (they double as the legend) */}
       {CATEGORY_FILTERS.map((f) => {
         const active = filter === f.key;
         const dot = f.key !== 'all' ? CATEGORY_DOTS[f.key] : null;
@@ -103,43 +112,45 @@ export function Toolbar({ filter, status, sort, baseQuery }: ToolbarProps): Reac
         );
       })}
 
-      <span style={divider()} aria-hidden />
+      <ToolbarMobileToggle summary={activeSummary(filter, status, sort)}>
+        <span style={dividerStyle} aria-hidden />
 
-      {STATUS_FILTERS.map((s) => {
-        const active = status === s.key;
-        return (
-          <Link
-            key={s.key}
-            href={baseQuery({ status: s.key === 'all' ? undefined : s.key })}
-            style={chip(active)}
-            aria-pressed={active}
-          >
-            {s.label}
-          </Link>
-        );
-      })}
+        {STATUS_FILTERS.map((s) => {
+          const active = status === s.key;
+          return (
+            <Link
+              key={s.key}
+              href={baseQuery({ status: s.key === 'all' ? undefined : s.key })}
+              style={chip(active)}
+              aria-pressed={active}
+            >
+              {s.label}
+            </Link>
+          );
+        })}
 
-      <span style={divider()} aria-hidden />
+        <span style={dividerStyle} aria-hidden />
 
-      <span
-        className="font-mono text-[10px]"
-        style={{ color: 'var(--color-text-tertiary)', marginRight: 2 }}
-      >
-        sort:
-      </span>
-      {SORT_OPTIONS.map((s) => {
-        const active = sort === s.key;
-        return (
-          <Link
-            key={s.key}
-            href={baseQuery({ sort: s.key === 'id' ? undefined : s.key })}
-            style={chip(active)}
-            aria-pressed={active}
-          >
-            {s.label}
-          </Link>
-        );
-      })}
+        <span
+          className="font-mono text-[10px]"
+          style={{ color: 'var(--color-text-tertiary)', marginRight: 2 }}
+        >
+          sort:
+        </span>
+        {SORT_OPTIONS.map((s) => {
+          const active = sort === s.key;
+          return (
+            <Link
+              key={s.key}
+              href={baseQuery({ sort: s.key === 'id' ? undefined : s.key })}
+              style={chip(active)}
+              aria-pressed={active}
+            >
+              {s.label}
+            </Link>
+          );
+        })}
+      </ToolbarMobileToggle>
     </div>
   );
 }

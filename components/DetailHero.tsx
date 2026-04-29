@@ -17,7 +17,7 @@ export function DetailHero({ slug, name, heroImage }: Props): ReactElement {
   if (heroImage) {
     return (
       <div
-        className="w-[35vw] max-w-[480px] aspect-video rounded-xl overflow-hidden"
+        className="w-full md:w-[28vw] md:max-w-[360px] aspect-video rounded-lg overflow-hidden"
         style={{ flexShrink: 0 }}
       >
         <Image
@@ -25,7 +25,7 @@ export function DetailHero({ slug, name, heroImage }: Props): ReactElement {
           alt={`${name} hero`}
           width={1280}
           height={720}
-          sizes="35vw"
+          sizes="(min-width: 768px) 28vw, 100vw"
           className="w-full h-full object-cover"
           priority
         />
@@ -35,7 +35,7 @@ export function DetailHero({ slug, name, heroImage }: Props): ReactElement {
   const hue = hashSlug(slug) % 360;
   return (
     <div
-      className="w-[35vw] max-w-[480px] aspect-video rounded-xl flex items-center justify-center"
+      className="w-full md:w-[28vw] md:max-w-[360px] aspect-video rounded-lg flex items-center justify-center"
       style={{
         flexShrink: 0,
         background: `linear-gradient(135deg, hsl(${hue} 60% 32%), hsl(${(hue + 40) % 360} 70% 22%))`,
