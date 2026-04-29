@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { EnrichedProjectEntry } from '@/lib/enrichment-types';
 import { Rail } from './Rail';
@@ -20,62 +21,110 @@ export function SpectrumCard({ entry }: { entry: EnrichedProjectEntry }): ReactE
       }}
     >
       <Rail category={entry.category} />
-      <div className="flex flex-col px-4 py-[14px] min-w-0">
-        <header className="flex items-center justify-between mb-2">
-          <StatusPill status={entry.status} />
-          <span className="font-mono text-[10px]" style={{ color: 'var(--color-text-tertiary)' }}>
-            {entry.id}
-          </span>
-        </header>
+      <div
+        className="grid gap-4 px-4 py-[14px] min-w-0"
+        style={{ gridTemplateColumns: 'minmax(0, 1fr) auto' }}
+      >
+        <div className="flex flex-col min-w-0">
+          <header className="flex items-center justify-between mb-2">
+            <StatusPill status={entry.status} />
+            <span
+              className="font-mono text-[10px] sm:hidden"
+              style={{ color: 'var(--color-text-tertiary)' }}
+            >
+              {entry.id}
+            </span>
+          </header>
 
-        <Link
-          href={`/projects/${entry.slug}`}
-          className="hover:underline"
-          style={{ textUnderlineOffset: 2 }}
-        >
-          <h3 className="text-[15px] font-medium leading-[1.3] m-0">{entry.name}</h3>
-        </Link>
-        <p
-          className="text-[13px] m-0 mt-1 mb-3 leading-[1.5] flex-1"
-          style={{ color: 'var(--color-text-secondary)' }}
-        >
-          {entry.tagline}
-        </p>
+          <Link
+            href={`/projects/${entry.slug}`}
+            className="hover:underline"
+            style={{ textUnderlineOffset: 2 }}
+          >
+            <h3 className="text-[15px] font-medium leading-[1.3] m-0">{entry.name}</h3>
+          </Link>
+          <p
+            className="text-[13px] m-0 mt-1 mb-3 leading-[1.5] flex-1"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            {entry.tagline}
+          </p>
 
-        <div className="flex flex-wrap gap-[6px] mb-3">
-          {stack.map((tag) => (
-            <TechStackTag key={tag} label={tag} category={entry.category} />
-          ))}
+          <div className="flex flex-wrap gap-[6px] mb-3">
+            {stack.map((tag) => (
+              <TechStackTag key={tag} label={tag} category={entry.category} />
+            ))}
+          </div>
+
+          <footer
+            className="flex items-center justify-between pt-[10px] font-mono text-[10px]"
+            style={{
+              borderTop: '0.5px solid var(--color-border-tertiary)',
+              color: 'var(--color-text-tertiary)',
+            }}
+          >
+            <span>updated {updatedDisplay}</span>
+            <span>
+              {footerLinks.map((l) => (
+                <a
+                  key={l.url}
+                  href={l.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-[10px] text-[12px]"
+                  style={{
+                    color: 'var(--color-text-secondary)',
+                    fontFamily: 'var(--font-sans)',
+                  }}
+                >
+                  {l.label} ↗
+                </a>
+              ))}
+            </span>
+          </footer>
         </div>
 
-        <footer
-          className="flex items-center justify-between pt-[10px] font-mono text-[10px]"
-          style={{
-            borderTop: '0.5px solid var(--color-border-tertiary)',
-            color: 'var(--color-text-tertiary)',
-          }}
-        >
-          <span>updated {updatedDisplay}</span>
-          <span>
-            {footerLinks.map((l) => (
-              <a
-                key={l.url}
-                href={l.url}
-                target="_blank"
-                rel="noreferrer"
-                className="ml-[10px] text-[12px]"
-                style={{
-                  color: 'var(--color-text-secondary)',
-                  fontFamily: 'var(--font-sans)',
-                }}
-              >
-                {l.label} ↗
-              </a>
-            ))}
-          </span>
-        </footer>
+        <CardThumbnail entry={entry} />
       </div>
     </article>
+  );
+}
+
+function CardThumbnail({ entry }: { entry: EnrichedProjectEntry }): ReactElement {
+  return (
+    <Link
+      href={`/projects/${entry.slug}`}
+      aria-label={`Open ${entry.name}`}
+      className="hidden sm:flex flex-col items-end justify-between shrink-0"
+      style={{ width: 128 }}
+    >
+      <span
+        className="font-mono text-[10px] mb-2"
+        style={{ color: 'var(--color-text-tertiary)' }}
+      >
+        {entry.id}
+      </span>
+      <div
+        className="overflow-hidden rounded-md"
+        style={{
+          width: 128,
+          aspectRatio: '16 / 9',
+          background: 'var(--color-background-secondary)',
+          border: '0.5px solid var(--color-border-tertiary)',
+        }}
+      >
+        {entry.heroImage ? (
+          <Image
+            src={entry.heroImage}
+            alt=""
+            width={256}
+            height={144}
+            sizes="128px"
+            className="w-full h-full object-cover"
+          />
+        ) : null}
+      </div>
+    </Link>
   );
 }
 
