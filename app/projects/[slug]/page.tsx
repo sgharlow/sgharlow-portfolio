@@ -181,6 +181,20 @@ export default async function ProjectPage({ params }: PageProps) {
                   video ↗
                 </a>
               )}
+              {entry.links.spec && (
+                <a
+                  href={entry.links.spec}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-3 text-[12px]"
+                  style={{
+                    color: 'var(--color-text-secondary)',
+                    fontFamily: 'var(--font-sans)',
+                  }}
+                >
+                  spec ↗
+                </a>
+              )}
               {entry.links.products?.map((p, i) => (
                 <a
                   key={i}

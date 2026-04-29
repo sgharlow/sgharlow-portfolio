@@ -25,6 +25,7 @@ export interface ProjectLinks {
   deployedSite?: string;
   githubRepo?: string; // "owner/repo"
   youtubeVideo?: string;
+  spec?: string; // optional URL — design doc / brainstorm / PR / RFC
   hackathon?: HackathonLink[];
   products?: ProductLink[];
 }
