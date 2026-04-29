@@ -29,6 +29,9 @@ export function TopNav(): ReactElement {
         <Link href="/" className="hover:underline" style={{ textUnderlineOffset: 2 }}>
           projects
         </Link>
+        <Link href="/about" className="hover:underline" style={{ textUnderlineOffset: 2 }}>
+          about
+        </Link>
         <a
           href="https://github.com/sgharlow"
           target="_blank"

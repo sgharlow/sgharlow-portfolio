@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       { source: "/providers/:slug*", destination: `${TRAINING}/providers/:slug*`, permanent: true },
       { source: "/quiz", destination: `${TRAINING}/quiz`, permanent: true },
       { source: "/quiz/:path*", destination: `${TRAINING}/quiz/:path*`, permanent: true },
-      { source: "/about", destination: `${TRAINING}/about`, permanent: true },
+      // /about is now served by the portfolio (see app/about/page.tsx); no redirect.
       { source: "/faq", destination: `${TRAINING}/faq`, permanent: true },
       { source: "/privacy", destination: `${TRAINING}/privacy`, permanent: true },
       { source: "/terms", destination: `${TRAINING}/terms`, permanent: true },

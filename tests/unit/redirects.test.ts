@@ -11,11 +11,10 @@ async function getRedirects() {
 }
 
 describe('Phase 6 catch-all redirects → training.learningai365.com', () => {
-  it('exposes the 14 source routes from the pivot spec', async () => {
+  it('exposes the 13 source routes (14 from pivot spec minus /about, now served locally)', async () => {
     const redirects = await getRedirects();
     const sources = redirects.map((r) => r.source).sort();
     expect(sources).toEqual([
-      '/about',
       '/categories/:slug*',
       '/courses/:slug*',
       '/daily-specials/:slug*',
