@@ -6,9 +6,30 @@ import { DetailHero } from '@/components/DetailHero';
 import { Rail } from '@/components/Rail';
 import { StatusPill } from '@/components/StatusPill';
 import { TechStackTag } from '@/components/TechStackTag';
+import type { EnrichedProjectEntry } from '@/lib/enrichment-types';
 import { appendUtm } from '@/lib/links';
 
 export const revalidate = 21600;
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.learningai365.com';
+
+function buildCreativeWorkJsonLd(entry: EnrichedProjectEntry) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: entry.name,
+    description: entry.tagline,
+    abstract: entry.summary,
+    url: `${SITE_URL}/projects/${entry.slug}`,
+    image: entry.heroImage ? `${SITE_URL}${entry.heroImage}` : undefined,
+    keywords: [entry.category, entry.status, ...entry.stack].join(', '),
+    dateModified: entry.enriched.github?.lastCommitAt,
+    author: { '@type': 'Person', name: 'Steve Gharlow' },
+    codeRepository: entry.links.githubRepo
+      ? `https://github.com/${entry.links.githubRepo}`
+      : undefined,
+  };
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -33,8 +54,14 @@ export default async function ProjectPage({ params }: PageProps) {
   const entry = file.entries.find((e) => e.slug === slug);
   if (!entry) notFound();
 
+  const jsonLd = buildCreativeWorkJsonLd(entry);
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link
         href="/"
         className="font-mono text-[11px]"
