@@ -2,7 +2,46 @@
 
 **Date:** 2026-04-26
 **Author:** Claude (Opus 4.7) with sgharlow
-**Status:** Approved through brainstorming; awaiting writing-plans transition
+**Status:** §1–4, §7–8, §10–12 still authoritative for the cutover. §5 (component layout) and §6 (daily-spotlight rotation) **superseded 2026-04-26 evening** by `/spectrum-lab-design.md` (commit `1befa1f`). See addendum below.
+
+---
+
+## ADDENDUM 2026-04-28 — Spectrum Lab supersedes §5–6
+
+After the brainstorm captured in §5–6 (full-viewport "Today's Spotlight" interstitial + daily rotation), the design pivoted the same evening to the **Spectrum Lab** approach in `/spectrum-lab-design.md`. That doc is the source of truth for component layout, color, typography, and category model. The built site at `app/page.tsx` matches it exactly.
+
+### What changed vs §5–6
+
+| Topic | §5–6 (this doc, original) | Spectrum Lab (built, v1) |
+|---|---|---|
+| Homepage | Full-viewport "Today's Spotlight" interstitial → close → `/grid` | "The lab" — direct grid with category filter chips, no interstitial |
+| Categories | `active / frozen / experiment / product` (lifecycle) | `agents / mcp / product / research / tooling` (taxonomy) |
+| Status | implicit in category | separate field: `active / in progress / shipped / experiment / archived` |
+| Daily rotation | yes (`lib/daily-spotlight.ts`, slug-sorted pool, launch-date epoch) | **deferred to v2** |
+| Color meaning | category accent per lifecycle | category = color (paint-chip), status = small mono dot |
+| `/today` route | aliased to `/` | not present in v1 |
+| Schema version | 1 | **2** (see `lib/enrichment-types.ts`) |
+
+### Why the pivot
+
+The original lifecycle-categories design conflated "what kind of project is this" with "where in lifecycle it sits." The Spectrum Lab split lets visitors scan by *kind* (the dominant signal) and then secondarily filter by *status*. The 9-section spec at `/spectrum-lab-design.md` locks color, typography, layout, and avoid-list values — that document is binding for any future spectrum-lab changes.
+
+### Daily-spotlight rotation — deferred, not abandoned
+
+If we add it back as v2:
+- Pool definition would shift to `status ∈ {'active', 'shipped'}` (works against the v1 schema; no new field needed).
+- Add `app/today/page.tsx` rendering a spotlight interstitial — does **not** replace `/`.
+- TopNav gets a "Today" link.
+- `lib/daily-spotlight.ts` algorithm in §6 stays valid; just operate on the v2 schema's `EnrichedProjectEntry`.
+
+Trigger for revisiting: data showing return-visit value (Vercel Analytics on the live portfolio for ≥1 week post-cutover).
+
+### What still applies from the original §5–6
+
+- `<ProjectCard>` hover popup / mobile modal contract for live site / GitHub / video / hackathon / product rows. (Implementation detail in spectrum-lab spec.)
+- Footer monetization band on every route. (Implementation in `app/layout.tsx`.)
+- `/projects/[slug]` detail pages and `/shop` filtered grid.
+- The cutover plan in §7, monetization in §8, and inclusion subset in §10 are unchanged.
 
 ---
 
