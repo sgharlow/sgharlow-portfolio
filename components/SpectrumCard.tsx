@@ -5,6 +5,7 @@ import type { EnrichedProjectEntry } from '@/lib/enrichment-types';
 import { Rail } from './Rail';
 import { StatusPill } from './StatusPill';
 import { TechStackTag } from './TechStackTag';
+import { HackathonBadges } from './HackathonBadge';
 import { appendUtm } from '@/lib/links';
 
 export function SpectrumCard({ entry }: { entry: EnrichedProjectEntry }): ReactElement {
@@ -55,6 +56,8 @@ export function SpectrumCard({ entry }: { entry: EnrichedProjectEntry }): ReactE
               <TechStackTag key={tag} label={tag} category={entry.category} />
             ))}
           </div>
+
+          <HackathonBadges items={entry.links.hackathon} />
 
           <footer
             className="flex items-center justify-between pt-[10px] font-mono text-[10px]"
