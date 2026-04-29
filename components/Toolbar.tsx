@@ -12,6 +12,14 @@ interface ToolbarProps {
   baseQuery: (overrides: Record<string, string | undefined>) => string;
 }
 
+const CATEGORY_DOTS: Record<Category, string> = {
+  agents: '#534AB7',
+  mcp: '#1D9E75',
+  product: '#D85A30',
+  research: '#D4537E',
+  tooling: '#378ADD',
+};
+
 const CATEGORY_FILTERS: Array<{ key: 'all' | Category; label: string }> = [
   { key: 'all', label: 'all' },
   { key: 'agents', label: 'agents' },
@@ -43,120 +51,95 @@ function chip(active: boolean): React.CSSProperties {
     background: active ? 'var(--color-text-primary)' : 'transparent',
     color: active ? 'var(--color-background-primary)' : 'var(--color-text-secondary)',
     borderColor: active ? 'var(--color-text-primary)' : 'var(--color-border-tertiary)',
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 6,
+    padding: '4px 10px',
+    fontSize: 12,
+    fontFamily: 'var(--font-mono)',
+    textDecoration: 'none',
+    lineHeight: 1,
   };
 }
 
-export function Toolbar({ q, filter, status, sort, baseQuery }: ToolbarProps): ReactElement {
+function divider(): React.CSSProperties {
+  return {
+    width: 1,
+    height: 16,
+    background: 'var(--color-border-tertiary)',
+    margin: '0 4px',
+  };
+}
+
+export function Toolbar({ filter, status, sort, baseQuery }: ToolbarProps): ReactElement {
   return (
-    <div className="mb-5 flex flex-col gap-3">
-      <form action="/" method="get" className="flex flex-wrap items-center gap-2">
-        <input
-          type="search"
-          name="q"
-          defaultValue={q}
-          placeholder="Search projects, stack, taglines…"
-          aria-label="Search projects"
-          className="px-3 py-[7px] text-[13px] font-sans flex-1 min-w-[200px] max-w-[420px]"
-          style={{
-            borderRadius: 8,
-            border: '0.5px solid var(--color-border-tertiary)',
-            background: 'var(--color-background-secondary)',
-            color: 'var(--color-text-primary)',
-            outline: 'none',
-          }}
-        />
-        {filter !== 'all' && <input type="hidden" name="filter" value={filter} />}
-        {status !== 'all' && <input type="hidden" name="status" value={status} />}
-        {sort !== 'id' && <input type="hidden" name="sort" value={sort} />}
-        <button
-          type="submit"
-          className="px-3 py-[7px] text-[12px] font-mono"
-          style={{
-            borderRadius: 8,
-            border: '0.5px solid var(--color-border-tertiary)',
-            background: 'var(--color-text-primary)',
-            color: 'var(--color-background-primary)',
-            cursor: 'pointer',
-          }}
-        >
-          search
-        </button>
-        {q && (
+    <div
+      className="flex flex-wrap items-center gap-1.5 mb-4 pb-3"
+      style={{ borderBottom: '0.5px dashed var(--color-border-tertiary)' }}
+    >
+      {CATEGORY_FILTERS.map((f) => {
+        const active = filter === f.key;
+        const dot = f.key !== 'all' ? CATEGORY_DOTS[f.key] : null;
+        return (
           <Link
-            href={baseQuery({ q: undefined })}
-            className="px-2 py-[5px] text-[11px] font-mono"
-            style={{ color: 'var(--color-text-tertiary)' }}
+            key={f.key}
+            href={baseQuery({ filter: f.key === 'all' ? undefined : f.key })}
+            style={chip(active)}
+            aria-pressed={active}
           >
-            clear
+            {dot ? (
+              <span
+                style={{
+                  display: 'inline-block',
+                  width: 7,
+                  height: 7,
+                  borderRadius: 999,
+                  background: dot,
+                }}
+              />
+            ) : null}
+            {f.label}
           </Link>
-        )}
-      </form>
+        );
+      })}
 
-      <div className="flex flex-wrap items-center gap-2">
-        <span
-          className="font-mono text-[10px] mr-1"
-          style={{ color: 'var(--color-text-tertiary)' }}
-        >
-          category:
-        </span>
-        {CATEGORY_FILTERS.map((f) => {
-          const active = filter === f.key;
-          return (
-            <Link
-              key={f.key}
-              href={baseQuery({ filter: f.key === 'all' ? undefined : f.key })}
-              className="px-3 py-1 text-[12px] font-mono"
-              style={chip(active)}
-            >
-              {f.label}
-            </Link>
-          );
-        })}
-      </div>
+      <span style={divider()} aria-hidden />
 
-      <div className="flex flex-wrap items-center gap-2">
-        <span
-          className="font-mono text-[10px] mr-1"
-          style={{ color: 'var(--color-text-tertiary)' }}
-        >
-          status:
-        </span>
-        {STATUS_FILTERS.map((s) => {
-          const active = status === s.key;
-          return (
-            <Link
-              key={s.key}
-              href={baseQuery({ status: s.key === 'all' ? undefined : s.key })}
-              className="px-3 py-1 text-[12px] font-mono"
-              style={chip(active)}
-            >
-              {s.label}
-            </Link>
-          );
-        })}
-      </div>
+      {STATUS_FILTERS.map((s) => {
+        const active = status === s.key;
+        return (
+          <Link
+            key={s.key}
+            href={baseQuery({ status: s.key === 'all' ? undefined : s.key })}
+            style={chip(active)}
+            aria-pressed={active}
+          >
+            {s.label}
+          </Link>
+        );
+      })}
 
-      <div className="flex flex-wrap items-center gap-2">
-        <span
-          className="font-mono text-[10px] mr-1"
-          style={{ color: 'var(--color-text-tertiary)' }}
-        >
-          sort:
-        </span>
-        {SORT_OPTIONS.map((s) => {
-          const active = sort === s.key;
-          return (
-            <Link
-              key={s.key}
-              href={baseQuery({ sort: s.key === 'id' ? undefined : s.key })}
-              className="px-3 py-1 text-[12px] font-mono"
-              style={chip(active)}
-            >
-              {s.label}
-            </Link>
-          );
-        })}
-      </div>
+      <span style={divider()} aria-hidden />
+
+      <span
+        className="font-mono text-[10px]"
+        style={{ color: 'var(--color-text-tertiary)', marginRight: 2 }}
+      >
+        sort:
+      </span>
+      {SORT_OPTIONS.map((s) => {
+        const active = sort === s.key;
+        return (
+          <Link
+            key={s.key}
+            href={baseQuery({ sort: s.key === 'id' ? undefined : s.key })}
+            style={chip(active)}
+            aria-pressed={active}
+          >
+            {s.label}
+          </Link>
+        );
+      })}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { TopNav } from '@/components/TopNav';
@@ -65,8 +66,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        <div className="max-w-6xl mx-auto px-6 py-5">
-          <TopNav />
+        <div className="max-w-6xl mx-auto px-6 py-3">
+          <Suspense fallback={<div style={{ height: 49 }} />}>
+            <TopNav />
+          </Suspense>
           {children}
         </div>
       </body>

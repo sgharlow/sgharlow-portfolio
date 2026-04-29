@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { loadEnrichedProjectsFile } from '@/lib/projects';
 import { SpectrumCard } from '@/components/SpectrumCard';
-import { CategoryLegend } from '@/components/CategoryLegend';
-import { HeroBlock } from '@/components/HeroBlock';
 import { Toolbar } from '@/components/Toolbar';
 import {
   buildQuery,
@@ -37,14 +35,23 @@ export default async function HomePage({ searchParams }: PageProps) {
   const byStatus = status === 'all' ? byCategory : byCategory.filter((e) => e.status === status);
   const filtered = searchEntries(byStatus, q);
 
+  const isFiltered = q !== '' || filter !== 'all' || status !== 'all' || sort !== 'id';
+
   const baseQuery = (overrides: Record<string, string | undefined>) =>
     buildQuery({ q, filter, status, sort }, overrides);
 
   return (
     <main>
-      <HeroBlock />
-      <CategoryLegend />
       <Toolbar q={q} filter={filter} status={status} sort={sort} baseQuery={baseQuery} />
+
+      {isFiltered ? (
+        <div
+          className="font-mono text-[10px] mb-3"
+          style={{ color: 'var(--color-text-tertiary)' }}
+        >
+          {filtered.length} of {file.entries.length} projects
+        </div>
+      ) : null}
 
       {filtered.length === 0 ? (
         <p
@@ -54,19 +61,11 @@ export default async function HomePage({ searchParams }: PageProps) {
           No projects match. {q && <>Try a different search.</>}
         </p>
       ) : (
-        <>
-          <div
-            className="font-mono text-[10px] mb-3"
-            style={{ color: 'var(--color-text-tertiary)' }}
-          >
-            {filtered.length} of {file.entries.length} projects
-          </div>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {filtered.map((entry) => (
-              <SpectrumCard key={entry.slug} entry={entry} />
-            ))}
-          </div>
-        </>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {filtered.map((entry) => (
+            <SpectrumCard key={entry.slug} entry={entry} />
+          ))}
+        </div>
       )}
     </main>
   );
