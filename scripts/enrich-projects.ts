@@ -70,25 +70,39 @@ export function deriveUpdated(
 const GH_API = 'https://api.github.com';
 const VERCEL_API = 'https://api.vercel.com';
 
-async function fetchGithub(repo: string, token: string): Promise<GithubEnrichment | undefined> {
+/**
+ * Lite GitHub fetch — single /repos/{owner}/{repo} call, no commits/releases.
+ * Works under the anonymous 60 req/hr rate limit (56 entries fit). With a token
+ * the full path runs three calls and gets latestRelease + per-commit timestamp.
+ */
+async function fetchGithub(repo: string, token: string | undefined): Promise<GithubEnrichment | undefined> {
   try {
-    const headers = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' };
+    const headers: Record<string, string> = { Accept: 'application/vnd.github+json' };
+    if (token) headers.Authorization = `Bearer ${token}`;
+
     const repoResp = await fetch(`${GH_API}/repos/${repo}`, { headers });
     if (!repoResp.ok) {
       console.warn(`[enrich] github ${repo} → ${repoResp.status}`);
       return undefined;
     }
     const repoJson = (await repoResp.json()) as Record<string, unknown>;
+    const fallbackLastCommit = repoJson.pushed_at as string;
 
-    const commitsResp = await fetch(`${GH_API}/repos/${repo}/commits?per_page=1`, { headers });
-    const commitsJson = (await commitsResp.json()) as Array<{ commit: { committer: { date: string } } }>;
-    const lastCommitAt = commitsJson[0]?.commit?.committer?.date ?? (repoJson.pushed_at as string);
-
-    const releasesResp = await fetch(`${GH_API}/repos/${repo}/releases/latest`, { headers });
+    let lastCommitAt = fallbackLastCommit;
     let latestRelease: GithubEnrichment['latestRelease'];
-    if (releasesResp.ok) {
-      const r = (await releasesResp.json()) as { tag_name: string; published_at: string };
-      latestRelease = { tag: r.tag_name, publishedAt: r.published_at };
+
+    if (token) {
+      const commitsResp = await fetch(`${GH_API}/repos/${repo}/commits?per_page=1`, { headers });
+      if (commitsResp.ok) {
+        const commitsJson = (await commitsResp.json()) as Array<{ commit: { committer: { date: string } } }>;
+        lastCommitAt = commitsJson[0]?.commit?.committer?.date ?? fallbackLastCommit;
+      }
+
+      const releasesResp = await fetch(`${GH_API}/repos/${repo}/releases/latest`, { headers });
+      if (releasesResp.ok) {
+        const r = (await releasesResp.json()) as { tag_name: string; published_at: string };
+        latestRelease = { tag: r.tag_name, publishedAt: r.published_at };
+      }
     }
 
     return {
@@ -151,15 +165,15 @@ async function fetchVercel(
 
 async function enrichEntry(
   entry: ProjectEntry,
-  ghToken: string,
-  vercelToken: string,
-  vercelTeamId: string,
+  ghToken: string | undefined,
+  vercelToken: string | undefined,
+  vercelTeamId: string | undefined,
 ): Promise<EnrichedProjectEntry> {
   const github = entry.links.githubRepo ? await fetchGithub(entry.links.githubRepo, ghToken) : undefined;
   // Skip vercel for book-like entries — heuristic: stack contains "book"
   const isBook = entry.stack.includes('book');
   const vercel =
-    entry.links.deployedSite && !isBook
+    entry.links.deployedSite && !isBook && vercelToken && vercelTeamId
       ? await fetchVercel(entry.slug, vercelToken, vercelTeamId)
       : undefined;
 
@@ -179,25 +193,12 @@ async function main(): Promise<void> {
   const outPath = path.join(process.cwd(), 'data', 'projects.enriched.json');
   await fs.mkdir(path.dirname(outPath), { recursive: true });
 
-  if (!ghToken || !vercelToken || !vercelTeamId) {
-    console.warn('[enrich] env vars missing; writing degraded enriched.json (no API calls)');
-    const out: EnrichedProjectsFile = {
-      ...file,
-      generatedAt: new Date().toISOString(),
-      entries: file.entries.map((e) => ({
-        ...e,
-        enriched: {
-          derivedUpdated: deriveUpdated(e.updated, undefined, undefined),
-          activityScore: Number.MAX_SAFE_INTEGER,
-        },
-      })),
-    };
-    await fs.writeFile(outPath, JSON.stringify(out, null, 2), 'utf-8');
-    console.log(`[enrich] wrote degraded ${outPath} (${out.entries.length} entries)`);
-    return;
-  }
-
-  console.log(`[enrich] processing ${file.entries.length} entries`);
+  const mode = ghToken
+    ? vercelToken && vercelTeamId
+      ? 'full (gh + vercel, authenticated)'
+      : 'gh-only (authenticated, no vercel)'
+    : 'anonymous-gh (no token, /repos only)';
+  console.log(`[enrich] mode: ${mode}; ${file.entries.length} entries`);
 
   const enriched: EnrichedProjectEntry[] = [];
   for (const entry of file.entries) {
