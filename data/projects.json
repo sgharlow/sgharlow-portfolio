@@ -15,7 +15,7 @@
         "agents"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/ai-matcher-aws-hackathon.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a learner-glyph at the center of a radial fan of branching learning-path threads, each thread tagged with a small platform-tile and ranked by confidence-rings of varying brightness.\nMood: matchmaking, optimistic.",
       "links": {
         "githubRepo": "sgharlow/AI-matcher-AWS-hackathon",
@@ -41,7 +41,7 @@
         "agents"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/ai-pr-bot.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a pull-request branch-fork shape with a small vulnerability-warning glyph being neutralized by an inline patch-token, while a thirty-second timer arc completes around the merge node.\nMood: defensive, swift.",
       "links": {
         "githubRepo": "sgharlow/ai-pr-bot",
@@ -66,7 +66,7 @@
         "next.js"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/aicin.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a network of course-module nodes linked by structured metadata threads, with a central intelligence-lens magnifying one node to reveal nested topic-tags arranged like pollen on a flower.\nMood: exploratory, structural.",
       "links": {
         "githubRepo": "sgharlow/AICIN"
@@ -85,7 +85,7 @@
         "spec"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/autospec-ai-hackathon.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: an informal requirement-cloud condensing through a structuring funnel into a tidy spec-document grid, with a small generator-cog inscribed at the funnel's narrowest point.\nMood: distilling, formal.",
       "links": {
         "githubRepo": "sgharlow/AutoSpecAI-Hackathon",
@@ -111,7 +111,7 @@
         "agents"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/composer.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: six discrete signal-flags arranged like a market candlestick row, each feeding into a central routing junction that splits into a clean strategy-execution lane and a quiet observation lane.\nMood: analytical, steady.",
       "links": {}
     },
@@ -129,7 +129,7 @@
         "turborepo"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/forge.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: five distinct geometric agent-glyphs arranged in a pentagon around a central glowing forge-anvil, each glyph linked by thin work-flow filaments and emitting a tiny work-token toward the anvil core.\nMood: coordinated, industrial.",
       "links": {
         "deployedSite": "https://forge-dashboard-nu.vercel.app"
@@ -149,7 +149,7 @@
         "sql"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/migrateiq.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a SQL-statement glyph traversing a translation chamber where multiple agent-pods inspect, annotate, and re-emit it in a new dialect, with a risk-meter bar pinned beside the chamber and a migration-route map unfurling beneath.\nMood: translational, cautious.",
       "links": {
         "githubRepo": "sgharlow/MigrateIQ",
@@ -176,7 +176,7 @@
         "agents"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/orchestra-lite.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a conductor's baton hovering over a constellation of small glowing agent-shapes arranged in symphonic-section formation.\nMood: orchestrating, rhythmic.",
       "links": {
         "githubRepo": "sgharlow/orchestra-lite"
@@ -196,7 +196,7 @@
         "agents"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/signbridge.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stylized hand-shape mid-gesture flowing into a translation prism that emits a synchronized text-ribbon and an audio-waveform on the opposite side, with a thin real-time pulse-line beneath.\nMood: bridging, immediate.",
       "links": {
         "githubRepo": "sgharlow/SignBridge"
@@ -216,7 +216,7 @@
         "claude"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/steves-minions.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a queue of small work-item cards being lifted by tiny conveyor-arms into a terminal portal that emits parallel coding-session sparks on the other side, while a lead minion-glyph oversees the line.\nMood: industrious, playful.",
       "links": {}
     },
@@ -234,7 +234,7 @@
         "stix"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/find-evil.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a magnifying glass over abstract evidence fragments — broken chains, fingerprints, and binary streams converging into a single forensic seal.\nMood: investigative, deliberate.",
       "links": {
         "githubRepo": "sgharlow/find-evil",
@@ -260,7 +260,7 @@
         "claude"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/health-pulse.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stylized heart-rate ECG line transforming into a network of connected nodes, with a translucent shield motif suggesting healthcare data integrity.\nMood: vigilant, precise.",
       "links": {
         "deployedSite": "https://web-umber-alpha-41.vercel.app",
@@ -287,7 +287,7 @@
         "kindle"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/ai-leadership-upcoming.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on electric blue, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a horizon line where a half-risen compass star ascends over a quiet leadership-lectern silhouette, with a faint ribbon of practical playbook-cards trailing toward it from the foreground.\nMood: anticipatory, grounded.",
       "links": {
         "products": [
@@ -312,7 +312,7 @@
         "newsletter"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/ai-newsletter.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a folded envelope opening to release a calm column of curated insight-cards arranged in weekly rhythm, with a small subscription-cursor pulsing at the lower-left fold.\nMood: tidy, weekly.",
       "links": {
         "deployedSite": "https://aiprodweekly.com"
@@ -331,7 +331,7 @@
         "markdown"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/claude-code-recipes.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on electric blue, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: an open recipe-index frame with two tiers of small workflow-card glyphs — a base layer of free cards laid plainly and a premium layer rising above them under a soft halo, each card showing a tiny gear-and-cursor motif.\nMood: generous, curated.",
       "links": {
         "githubRepo": "sgharlow/claude-code-recipes",
@@ -357,7 +357,7 @@
         "kindle"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/ender-ai-leadership.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on electric blue, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stylized chess king piece dissolving at the edges into networked light particles, suggesting strategic command transmuted into AI-augmented decision-making.\nMood: contemplative, decisive.",
       "links": {
         "deployedSite": "https://foreign-mind.com",
@@ -383,7 +383,7 @@
         "marketing"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/envirowash.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stylized water-droplet enveloping a compliance-checkmark medallion, with abstract leaf-blades arcing around the droplet and a subtle regulatory-clipboard silhouette anchoring the base.\nMood: dormant, accountable.",
       "links": {
         "deployedSite": "https://envirowash.org"
@@ -403,7 +403,7 @@
         "postgres"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/learningai.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stepped learning-path staircase ascending toward a glowing knowledge-node summit, with two parallel routing rails — one modern and one legacy — converging at the base, and small reward-tag glyphs floating along the path.\nMood: ambitious, methodical.",
       "links": {
         "deployedSite": "https://learningai365.com"
@@ -424,7 +424,7 @@
         "bold"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/report-bridge.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stylized report-document silhouette dissolving on its left edge into a flowing river of structured data rows that reform on the right as a clean modern dashboard panel, with translucent bridge arches spanning the gap.\nMood: transformative, deliberate.",
       "links": {
         "deployedSite": "https://report-bridge.com"
@@ -444,7 +444,7 @@
         "stripe"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/second-brain.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a softly glowing knowledge graph of interlinked memory-nodes radiating from a central tempo-pulse glyph, with a small subscription-key motif anchoring the lower edge of the cluster.\nMood: contemplative, attentive.",
       "links": {
         "deployedSite": "https://www.mindtempo.app"
@@ -463,7 +463,7 @@
         "civic"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/awesome-civic-tech.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a tidy index-card constellation of small civic-building glyphs — courthouse, ballot, ledger, transit — connected by curatorial bookmark-ribbons and anchored by a central reference-pin.\nMood: curatorial, civic-minded.",
       "links": {
         "githubRepo": "sgharlow/awesome-civic-tech"
@@ -483,7 +483,7 @@
         "claude"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/distraction.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a balanced scale weighing a stack of solemn constitutional pillars on one side against a noisy cluster of fragmented media-bubble shapes on the other, with a measured timeline thread running beneath both pans.\nMood: critical, transparent.",
       "links": {
         "deployedSite": "https://distractionindex.org",
@@ -503,7 +503,7 @@
         "python"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/info-worker-demo.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stacked ribbon of notebook cells alternating prose and code, with knowledge-work artefacts — a memo, a chart, a checklist — emerging from the ribbon and arranging themselves on a clean desk plane.\nMood: exploratory, instructive.",
       "links": {
         "githubRepo": "sgharlow/info-worker-demo"
@@ -523,7 +523,7 @@
         "ai"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/insight-exit.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: an open doorway with a stream of small knowledge-glyphs being captured into a structured archive crystal beside it, and a parallel handoff-thread weaving from the threshold into a fresh successor seat.\nMood: graceful, retentive.",
       "links": {
         "deployedSite": "https://www.exit-insights.com",
@@ -543,7 +543,7 @@
         "supabase"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/inspection-intelligence.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a layered multi-jurisdictional map abstraction with stacked translucent regions, each region feeding aggregated bar-chart slivers up into a single secured dashboard pane wrapped in a faint padlock outline.\nMood: rigorous, observant.",
       "links": {
         "deployedSite": "https://inspection-intelligence-six.vercel.app"
@@ -562,7 +562,7 @@
         "supabase"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/justicewatch.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stylized gavel resting beside an open civic-records ledger, with a horizontal timeline of small case-marker glyphs running across the page and a watchful eye-glyph subtly inscribed in the ledger margin.\nMood: vigilant, civic.",
       "links": {
         "deployedSite": "https://justicewatch.app"
@@ -581,7 +581,7 @@
         "docs"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/kiro-living-docs-devpost.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a breathing documentation-page glyph paired side-by-side with a code-block glyph, joined by twin synchronization filaments that pulse in unison and a watcher-eye glyph perched between them.\nMood: synchronized, attentive.",
       "links": {
         "githubRepo": "sgharlow/kiro-living-docs-devpost",
@@ -607,7 +607,7 @@
         "video"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/opus-vidcentral.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a layered stack of video-frame rectangles indexed by jurisdiction tabs, with a migration arrow lifting the stack from a legacy server silo toward a cluster of modern container-blocks arranged in formation.\nMood: archival, forward-leaning.",
       "links": {}
     },
@@ -624,7 +624,7 @@
         "docs"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/patents.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: three nested invention-blueprint folios stacked at slight angles, each marked with a small provisional-stamp seal and connected by claim-thread filaments to a central decision-gate that sits half-open.\nMood: deliberate, inventive.",
       "links": {}
     },
@@ -642,7 +642,7 @@
         "epa"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/ride-check.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stylized car silhouette in profile overlaid with a translucent inspection card showing abstract risk indicators — recall flag, emissions gauge, and a small certification stamp — with subtle data lines feeding into the card.\nMood: pragmatic, reassuring.",
       "links": {
         "deployedSite": "https://ride-check.vercel.app",
@@ -662,7 +662,7 @@
         "oauth"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/scopeshield.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a translucent shield rising in front of a fenced project-scope boundary, with errant arrow-shaped feature requests bouncing off the shield surface and a clean ticket-card stack remaining intact behind it.\nMood: protective, disciplined.",
       "links": {
         "deployedSite": "https://scopeshield.vercel.app"
@@ -682,7 +682,7 @@
         "realtime"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/specforge.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a glowing anvil forging a precise blueprint grid, with hairline gap-fissures detected and highlighted along the grid edges and small spec-fragment shards orbiting in formation overhead.\nMood: precise, generative.",
       "links": {
         "deployedSite": "https://specforge-woad.vercel.app"
@@ -702,7 +702,7 @@
         "voice"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/accessbrowse.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a translucent browser-window frame piloted by a small glowing voice-cursor that traces hover, click, and scroll paths across the page, with a parallel transcript ribbon recording each action.\nMood: assistive, fluent.",
       "links": {
         "githubRepo": "sgharlow/accessbrowse",
@@ -728,7 +728,7 @@
         "voice"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/accessvoice.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a soft sound-wave ribbon emanating from a microphone glyph and reshaping a simplified browser layout into a high-contrast accessibility-first arrangement, with a guiding-cane motif resting alongside.\nMood: empathic, navigational.",
       "links": {
         "githubRepo": "sgharlow/accessvoice",
@@ -753,7 +753,7 @@
         "edu"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/adapt-learn.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a flexible learning-path ribbon that bends and re-routes around small signal-pulses, branching into easier and harder forks while a feedback dial calibrates the next segment.\nMood: responsive, exploratory.",
       "links": {
         "deployedSite": "https://adapt-learn-rosy.vercel.app",
@@ -773,7 +773,7 @@
         "claude"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/ai-control-framework.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a deployment-readiness gauge framed by a contract-seal lock on one side and a hourglass with a frozen mock-token suspended inside on the other, all anchored on a foundation of stacked guardrail bars.\nMood: governing, exacting.",
       "links": {
         "githubRepo": "sgharlow/ai-control-framework"
@@ -792,7 +792,7 @@
         "sqlite"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/ai-cost-tracking.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: an editor status-bar strip stretched across the scene with a running token-meter gauge, small per-project coin-stacks lining the strip below, and a tiny cursor-caret blinking at the meter's leading edge.\nMood: meticulous, accountable.",
       "links": {}
     },
@@ -809,7 +809,7 @@
         "recipes"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/automation-recipes.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a tidy recipe-card grid where each card sketches a small flow of connected automation steps — gear, arrow, checkmark — with a measuring-spoon glyph hovering above to suggest curated portions.\nMood: practical, inviting.",
       "links": {
         "deployedSite": "https://automation-recipes-steves-projects-a71becf4.vercel.app"
@@ -828,7 +828,7 @@
         "claude"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/beta-capture.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stack of translucent browser-window frames with a small capture-clip pulling a feedback note from the topmost frame into a structured intake funnel beside the stack.\nMood: attentive, frictionless.",
       "links": {}
     },
@@ -845,7 +845,7 @@
         "video"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/build-it-episodes.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a numbered row of episode-tile slates leading toward a glowing record-light beacon, with seven smaller cautionary warning-glyphs trailing beneath the row to signal anti-patterns.\nMood: serial, instructive.",
       "links": {}
     },
@@ -862,7 +862,7 @@
         "react"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/comment-conspiracy.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a tangled web of comment-bubble shapes connected by red string like a conspiracy board, with one bubble glowing as the real one.\nMood: playful, suspicious.",
       "links": {
         "githubRepo": "sgharlow/comment-conspiracy",
@@ -888,7 +888,7 @@
         "domo"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/domo-tests.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: nine small jurisdiction-tiles funnelling structured row-streams into a central Monday-clock dial, with a reverse-allocator gear redistributing weekly chunks into balanced monthly columns alongside.\nMood: scheduled, reliable.",
       "links": {}
     },
@@ -905,7 +905,7 @@
         "cli"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/dragon-haven.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a coiled abstract dragon-form encircling a sheltering haven-glyph nestled inside a terminal-prompt frame, with a few small experimental script-flames flickering at its tail.\nMood: whimsical, contained.",
       "links": {
         "githubRepo": "sgharlow/dragon-haven"
@@ -924,7 +924,7 @@
         "env"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/env-update.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a small bank-vault box holding a neatly labelled stack of dot-env file glyphs, with a quiet backup-arrow looping from the project shelves outside the vault into a fresh slot inside.\nMood: custodial, quiet.",
       "links": {}
     },
@@ -942,7 +942,7 @@
         "a11y"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/inspect-iq.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a vehicle-outline framed by a structured checklist overlay, with each checkpoint marked by a small inspection-pin and a printable summary scroll unfurling at the lower edge.\nMood: methodical, advisory.",
       "links": {
         "githubRepo": "sgharlow/inspect-iq",
@@ -967,7 +967,7 @@
         "shell"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/kiro-rails.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a terminal-prompt corridor flanked by two parallel guard-rails that channel a workflow-cart safely past hazard glyphs, with a small hackathon-flag waving at the corridor's end.\nMood: protective, channelled.",
       "links": {
         "githubRepo": "sgharlow/kiro-rails"
@@ -986,7 +986,7 @@
         "markdown"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/mdlink-check.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a single markdown page-glyph with a row of outbound link-arcs being verified by tiny check-tokens, while a few broken arcs hang interrupted with caution-marks at their tips.\nMood: tidy, vigilant.",
       "links": {
         "githubRepo": "sgharlow/mdlink-check"
@@ -1005,7 +1005,7 @@
         "a11y"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/multimodal-learning-enhancer.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stack of browser-window panels splitting into three modality lanes — a visual eye-glyph, an auditory waveform-glyph, and a kinesthetic motion-glyph — each lane re-rendering the same content in its own form.\nMood: adaptive, inclusive.",
       "links": {
         "githubRepo": "sgharlow/MultimodalLearningEnhancer"
@@ -1024,7 +1024,7 @@
         "github"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/project-dashboard.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a constellation of small dashboard tiles arranged in a grid, each tile pulsing with a tiny status indicator, all linked by thin orbit lines to a central observation lens that refreshes on a clockwise sweep.\nMood: observant, calm.",
       "links": {
         "deployedSite": "https://project-dashboard-mauve-three.vercel.app"
@@ -1043,7 +1043,7 @@
         "react"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/scripture-sleuth.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a fanned arrangement of aged scroll-fragment cards with verse-glyph ornaments, one card subtly off-key with mismatched ornament details, while a discerning-glass hovers over the row picking out the imposter.\nMood: discerning, reverent.",
       "links": {
         "githubRepo": "sgharlow/scripture-sleuth",
@@ -1068,7 +1068,7 @@
         "legacy"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/scrum-web-app.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a softly faded sprint-board frame mounted in an archive niche, with a few preserved sticky-note glyphs pinned in place and a small chain-of-history thread tracing back to its origin.\nMood: nostalgic, preserved.",
       "links": {
         "githubRepo": "sgharlow/scrum-web-app"
@@ -1087,7 +1087,7 @@
         "react"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/scrum-web-reborn.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a sprint-board kanban grid being lifted from a faded legacy frame and re-rendered in a crisp modern frame beside it, with sticky-note glyphs migrating across the gap on a clean transition rail.\nMood: archival, refreshed.",
       "links": {
         "githubRepo": "sgharlow/scrum-web-reborn"
@@ -1106,7 +1106,7 @@
         "react"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/sgharlow-portfolio.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a slowly rotating carousel of small project-tile silhouettes orbiting a central spotlight beam, with a quiet enrichment-pipeline ribbon feeding fresh metadata into each tile as it passes the beam.\nMood: reflective, curating.",
       "links": {
         "deployedSite": "https://sgharlow-portfolio.vercel.app",
@@ -1127,7 +1127,7 @@
         "docs"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/system-docs.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a vast wall of small repo-card tiles fading into the distance, with a roving documentation-lantern beam sweeping across them and emerging structured doc-pages floating into a tidy index spine on the right.\nMood: cataloguing, illuminating.",
       "links": {}
     },
@@ -1144,7 +1144,7 @@
         "ado"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/ticket-quality.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on magenta, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a row of ticket-cards passing through a translucent rubric prism, each card emerging tagged with a stylized grade-medallion ranging from a bright top-tier sigil down to a faded low-tier mark.\nMood: critical, fair.",
       "links": {
         "githubRepo": "sgharlow/ticket-quality"
@@ -1163,7 +1163,7 @@
         "lambda"
       ],
       "updated": "apr 2026",
-      "heroImage": null,
+      "heroImage": "/projects/trivia60-aws-game-builder.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on warm amber, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a sixty-second countdown ring encircling a quick-burst question-card, with cloud-service block glyphs orbiting the ring and rapid lightning marks suggesting fast cold-start generation.\nMood: brisk, playful.",
       "links": {
         "githubRepo": "sgharlow/trivia60-aws-game-builder"

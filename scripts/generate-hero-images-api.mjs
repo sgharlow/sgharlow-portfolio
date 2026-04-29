@@ -33,8 +33,8 @@ const MODEL = process.env.GEMINI_IMAGE_MODEL || 'imagen-4.0-generate-001';
 const TARGET_WIDTH = 1280;
 const TARGET_HEIGHT = 720;
 const TARGET_QUALITY = 82;
-const MAX_RETRIES = 3;
-const BASE_BACKOFF_MS = 4_000;
+const MAX_RETRIES = 6;
+const BASE_BACKOFF_MS = 8_000;
 
 const args = process.argv.slice(2);
 const flag = (name) => args.includes(name);
@@ -114,8 +114,11 @@ async function generateOne(ai, slug, prompt) {
       const is429 = /429|RESOURCE_EXHAUSTED|rate limit/i.test(msg);
       const is5xx = /5\d\d|UNAVAILABLE|INTERNAL/i.test(msg);
       if (!is429 && !is5xx) throw err;
-      const wait = BASE_BACKOFF_MS * Math.pow(2, attempt);
-      warn(`[${slug}] attempt ${attempt + 1} failed (${msg}); retrying in ${wait}ms`);
+      const hintMatch = msg.match(/retry in ([\d.]+)s/i);
+      const hintMs = hintMatch ? Math.ceil(parseFloat(hintMatch[1]) * 1000) + 1000 : 0;
+      const expBackoff = BASE_BACKOFF_MS * Math.pow(2, attempt);
+      const wait = Math.max(hintMs, expBackoff);
+      warn(`[${slug}] attempt ${attempt + 1} failed (429/5xx); retrying in ${wait}ms`);
       await new Promise((r) => setTimeout(r, wait));
     }
   }
