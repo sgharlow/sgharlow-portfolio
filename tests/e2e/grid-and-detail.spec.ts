@@ -4,7 +4,7 @@ test('homepage shows the grid; clicking a card title navigates to the detail pag
   page,
 }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'The lab' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /sgharlow.*the lab/i })).toBeVisible();
 
   // At least one card is visible
   const firstCard = page.locator('article').first();
