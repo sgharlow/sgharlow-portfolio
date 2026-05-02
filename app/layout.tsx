@@ -7,7 +7,7 @@ import { TopNav } from '@/components/TopNav';
 const sans = Inter({ subsets: ['latin'], variable: '--font-sans-loaded' });
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono-loaded' });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.learningai365.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://portfolio.learningai365.com';
 
 export const metadata: Metadata = {
   title: 'sgharlow — the lab',

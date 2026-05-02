@@ -70,6 +70,13 @@ export function TopNav(): ReactElement {
           about
         </Link>
         <a
+          href="https://www.learningai365.com"
+          className="hover:underline"
+          style={{ textUnderlineOffset: 2 }}
+        >
+          ai courses
+        </a>
+        <a
           href="https://github.com/sgharlow"
           target="_blank"
           rel="noreferrer"

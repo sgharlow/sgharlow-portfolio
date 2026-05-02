@@ -2,7 +2,43 @@
 
 **Date:** 2026-04-26
 **Author:** Claude (Opus 4.7) with sgharlow
-**Status:** §1–4, §7–8, §10–12 still authoritative for the cutover. §5 (component layout) and §6 (daily-spotlight rotation) **superseded 2026-04-26 evening** by `/spectrum-lab-design.md` (commit `1befa1f`). See addendum below.
+**Status:** ⚠️ **ABANDONED 2026-05-01.** Superseded by the subdomain plan (see top-of-file addendum). Original status (now stale): §1–4, §7–8, §10–12 still authoritative for the cutover. §5 (component layout) and §6 (daily-spotlight rotation) **superseded 2026-04-26 evening** by `/spectrum-lab-design.md` (commit `1befa1f`). See addendum below.
+
+---
+
+## ABANDONED 2026-05-01 — cutover replaced by subdomain plan
+
+**The cutover described in this spec was never executed and will not be.** Both `www.learningai365.com` and `training.learningai365.com` continue to serve the LearningAI affiliate site (the cutover prep made them point at the same Vercel project; that's where it stops). The portfolio will not take over `www.`.
+
+### Replacement plan
+
+- **`www.learningai365.com`** stays the LearningAI affiliate / training site, long-term. The site has $0 affiliate revenue today; the play is to build organic traffic + content (programmatic compare pages, fresh-content `/courses/new`, distribution via LinkedIn/Twitter) and let the existing link equity compound.
+- **`portfolio.learningai365.com`** is the new home for the portfolio (this repo). One-time DNS + Vercel domain ops (CNAME → cname.vercel-dns.com, add domain to `sgharlow-portfolio` Vercel project). No path-mounting, no rewrites, no basePath. Each site is fully independent at the edge.
+- **Top-nav cross-links**: learningai gets a "Portfolio" link (next to "About") pointing at `https://portfolio.learningai365.com`. Portfolio gets an "AI Courses" link pointing at `https://www.learningai365.com`. Symmetric two-way bridge.
+
+### Why this spec was abandoned
+
+The cutover was correct as a design but mispriced as a near-term move:
+
+1. **Asymmetric investment.** Five days of commits on learningai (`36dfaa5` direct affiliate CTA, `fbefca5` "Start course #1" CTA, `a8d9a9a` OpenAI enrichment, `962a21c` /courses/new, `7cf2f3d` DeepLearning.AI scrapers, `51ffa04` compare pages) showed the affiliate site was being polished as the revenue surface — not as a soon-to-be-demoted subdomain.
+2. **SEO link equity.** `www.learningai365.com` has accrued months of indexation against the catalog. Demoting it to `training.*` and migrating equity via Phase-6 catch-all 301s would have worked, but for a site with $0 baseline revenue the right move is to keep the equity in place and let traffic compound.
+3. **Subdomain dissolves all the implementation costs of path-mounting.** No rewrite-edge fragility, no basePath refactor on the portfolio, no `/_next/static/*` collisions, no JSON-LD canonical edits. The portfolio standalone Vercel deploy keeps working unchanged.
+
+### What was unwound on 2026-05-01
+
+- `learningai/frontend/src/app/layout.tsx`, `next-sitemap.config.js`, `src/app/page.tsx`, `src/app/sitemap.ts` — `NEXT_PUBLIC_SITE_URL` defaults reverted from `training.*` back to `www.*`
+- `learningai/frontend/src/app/layout.tsx` and `MobileNav.tsx` — Portfolio nav links updated from `https://sgharlow-portfolio.vercel.app` to `https://portfolio.learningai365.com`, `target="_blank"` removed (now same-property)
+- `portfolio/next.config.ts` — 14-entry catch-all 301 redirect table to `training.*` removed (no longer needed; routes that don't exist on the portfolio simply 404)
+- `portfolio/tests/unit/redirects.test.ts` — deleted (was testing the redirect table that was just removed)
+
+### What was kept from this spec for reference
+
+- §5–6 superseded by Spectrum Lab (already noted in the 2026-04-28 addendum below)
+- §9 hero-image strategy and nano-banana prompt template — still useful for portfolio entries
+- §10 inclusion subset table — became `data/projects.json` (56 entries shipped)
+- §11–12 open questions / out-of-scope — partially still open, partially moot
+
+The original spec body is preserved below for historical context.
 
 ---
 
