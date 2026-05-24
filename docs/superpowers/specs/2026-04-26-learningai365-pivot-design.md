@@ -64,6 +64,8 @@ The original lifecycle-categories design conflated "what kind of project is this
 
 ### Daily-spotlight rotation — deferred, not abandoned
 
+> **v2 status (as of 2026-05-01 closeout): no active v2 roadmap exists.** The site is in closeout state. Whether v2 is deferred (revisit when analytics justify it) or cancelled is an owner decision. Owner confirm required before treating this as an open engineering item.
+
 If we add it back as v2:
 - Pool definition would shift to `status ∈ {'active', 'shipped'}` (works against the v1 schema; no new field needed).
 - Add `app/today/page.tsx` rendering a spotlight interstitial — does **not** replace `/`.

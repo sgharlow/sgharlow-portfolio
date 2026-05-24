@@ -2,7 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build a new public portfolio site at `www.learningai365.com` that aggregates sgharlow's AI learning projects (GitHub repos, Vercel deployments, hackathons, books) with a daily-rotating "spotlight" project on the homepage, and migrate the existing learningai content to `training.learningai365.com`.
+> ⚠️ BUILD COMPLETE / pivot goal ABANDONED 2026-05-01 (redirects unwound, commit c37957a). The learningai-migration goal (migrating learningai content to `training.learningai365.com` and serving the portfolio at `www.learningai365.com`) was dropped; the portfolio now lives at `portfolio.learningai365.com`. Unchecked task boxes (`- [ ]`) below are historical — they were not executed and will not be. See `docs/superpowers/specs/2026-04-26-learningai365-pivot-design.md` for the full abandonment context.
+
+**Goal (historical — abandoned):** Build a new public portfolio site at `www.learningai365.com` that aggregates sgharlow's AI learning projects (GitHub repos, Vercel deployments, hackathons, books) with a daily-rotating "spotlight" project on the homepage, and migrate the existing learningai content to `training.learningai365.com`.
 
 **Architecture:** Greenfield Next.js 16 + React 19 + TypeScript + Tailwind v4 app. Curated `data/projects.json` is the source of truth; build-time enrichment script calls GitHub + Vercel APIs to derive status fields. Static-first with ISR (1h spotlight, 6h elsewhere). No DB, no auth, no CMS. Deployed on a new Vercel project; existing `learningai365` Vercel project gets renamed to `learningai365-training` at cutover.
 

@@ -30,3 +30,7 @@ npm run build  # runs prebuild enrichment first
 npm test          # unit
 npm run test:e2e  # playwright
 ```
+
+## CI
+
+A GitHub Actions workflow (`.github/workflows/ci.yml`) runs typecheck, unit tests, build, and Playwright E2E on every push to `main` and on pull requests. The build step requires `GH_TOKEN`, `VERCEL_TOKEN`, and `VERCEL_TEAM_ID` secrets to be set in the repository. The repo is in **closeout state** — no active feature development is planned.
