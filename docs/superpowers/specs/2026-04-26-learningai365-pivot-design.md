@@ -2,7 +2,7 @@
 
 **Date:** 2026-04-26
 **Author:** Claude (Opus 4.7) with sgharlow
-**Status:** ⚠️ **ABANDONED 2026-05-01.** Superseded by the subdomain plan (see top-of-file addendum). Original status (now stale): §1–4, §7–8, §10–12 still authoritative for the cutover. §5 (component layout) and §6 (daily-spotlight rotation) **superseded 2026-04-26 evening** by `/spectrum-lab-design.md` (commit `1befa1f`). See addendum below.
+**Status:** ⚠️ **ABANDONED 2026-05-01 — NO section of this document retains authority** (clarified 2026-07-24; the earlier "§1–4, §7–8, §10–12 still authoritative" wording predated the abandonment and was stale the moment the pivot was dropped). Superseded by the subdomain plan (see top-of-file addendum); layout/design authority is `/spectrum-lab-design.md` (commit `1befa1f`). Historical reference only.
 
 ---
 
