@@ -434,21 +434,19 @@
       "slug": "second-brain",
       "id": "#20",
       "name": "Second Brain (MindTempo)",
-      "tagline": "Personal knowledge OS with Stripe billing.",
-      "summary": "MVP personal knowledge OS at mindtempo.app. 402 tests, Stripe billing implemented, ready for paid sign-ups.",
+      "tagline": "Personal knowledge OS, now offline.",
+      "summary": "MVP personal knowledge OS with TEMPO focus scoring and Stripe billing. Taken offline in October 2026 after its database backend was retired; mindtempo.app now shows an offline notice.",
       "category": "product",
-      "status": "shipped",
+      "status": "archived",
       "stack": [
         "next.js",
         "supabase",
         "stripe"
       ],
-      "updated": "apr 2026",
+      "updated": "oct 2026",
       "heroImage": "/projects/second-brain.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a softly glowing knowledge graph of interlinked memory-nodes radiating from a central tempo-pulse glyph, with a small subscription-key motif anchoring the lower edge of the cluster.\nMood: contemplative, attentive.",
-      "links": {
-        "deployedSite": "https://www.mindtempo.app"
-      }
+      "links": {}
     },
     {
       "slug": "awesome-civic-tech",
