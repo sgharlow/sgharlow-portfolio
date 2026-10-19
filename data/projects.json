@@ -102,15 +102,15 @@
       "id": "#05",
       "name": "Composer Trading",
       "tagline": "FastAPI signal engine wrapping the Composer trading API.",
-      "summary": "FastAPI service plus Composer trading API integration with 6 signal checks. 269 tests, 2 skipped, CI green.",
+      "summary": "FastAPI service plus Composer trading API integration with 6 signal checks, run locally. Archived in October 2026.",
       "category": "agents",
-      "status": "active",
+      "status": "archived",
       "stack": [
         "fastapi",
         "python",
         "agents"
       ],
-      "updated": "apr 2026",
+      "updated": "oct 2026",
       "heroImage": "/projects/composer.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: six discrete signal-flags arranged like a market candlestick row, each feeding into a central routing junction that splits into a clean strategy-execution lane and a quiet observation lane.\nMood: analytical, steady.",
       "links": {}
