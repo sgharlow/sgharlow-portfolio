@@ -551,20 +551,18 @@
       "slug": "justicewatch",
       "id": "#26",
       "name": "JusticeWatch",
-      "tagline": "Civil-rights case tracker on Next.js 16.",
-      "summary": "Public civil-rights case tracker built on Next.js 16 + React 19 with 258 tests. Live at justicewatch.app.",
+      "tagline": "Civil-rights case tracker, now archived.",
+      "summary": "Public civil-rights case tracker built on Next.js 16 + React 19 with 258 tests. Terminated and archived in October 2026; justicewatch.app is offline.",
       "category": "research",
-      "status": "active",
+      "status": "archived",
       "stack": [
         "next.js",
         "supabase"
       ],
-      "updated": "apr 2026",
+      "updated": "oct 2026",
       "heroImage": "/projects/justicewatch.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a stylized gavel resting beside an open civic-records ledger, with a horizontal timeline of small case-marker glyphs running across the page and a watchful eye-glyph subtly inscribed in the ledger margin.\nMood: vigilant, civic.",
-      "links": {
-        "deployedSite": "https://justicewatch.app"
-      }
+      "links": {}
     },
     {
       "slug": "kiro-living-docs-devpost",
