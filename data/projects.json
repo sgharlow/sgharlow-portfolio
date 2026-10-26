@@ -122,7 +122,7 @@
       "tagline": "Multi-agent operations platform with 5 production agents.",
       "summary": "Production-verified multi-agent platform with 2,083 tests across 17 packages and five live agents. Billing deferred until beta exit.",
       "category": "agents",
-      "status": "active",
+      "status": "archived",
       "stack": [
         "agents",
         "next.js",
@@ -131,9 +131,7 @@
       "updated": "apr 2026",
       "heroImage": "/projects/forge.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: five distinct geometric agent-glyphs arranged in a pentagon around a central glowing forge-anvil, each glyph linked by thin work-flow filaments and emitting a tiny work-token toward the anvil core.\nMood: coordinated, industrial.",
-      "links": {
-        "deployedSite": "https://forge-dashboard-nu.vercel.app"
-      }
+      "links": {}
     },
     {
       "slug": "migrateiq",
@@ -652,7 +650,7 @@
       "tagline": "Scope-creep guard for engineering teams.",
       "summary": "Scope-management tool with 1,435 tests, CI and E2E green. Awaiting OAuth credentials to fully launch.",
       "category": "research",
-      "status": "shipped",
+      "status": "archived",
       "stack": [
         "next.js",
         "oauth"
@@ -660,9 +658,7 @@
       "updated": "apr 2026",
       "heroImage": "/projects/scopeshield.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a translucent shield rising in front of a fenced project-scope boundary, with errant arrow-shaped feature requests bouncing off the shield surface and a clean ticket-card stack remaining intact behind it.\nMood: protective, disciplined.",
-      "links": {
-        "deployedSite": "https://scopeshield.vercel.app"
-      }
+      "links": {}
     },
     {
       "slug": "specforge",
@@ -671,7 +667,7 @@
       "tagline": "Spec-driven development engine with realtime gap detection.",
       "summary": "Spec-extraction and gap-detection tooling for AI-driven development with realtime collaboration. 1,054 tests across 77 suites.",
       "category": "research",
-      "status": "shipped",
+      "status": "archived",
       "stack": [
         "next.js",
         "spec",
@@ -680,9 +676,7 @@
       "updated": "apr 2026",
       "heroImage": "/projects/specforge.webp",
       "heroImagePrompt": "Format: 16:9 hero illustration, dark background, technical-but-warm aesthetic.\nStyle: editorial flat illustration, subtle gradient lighting, clean geometric forms, muted color palette anchored on emerald green, NO text, NO logos, NO faces.\nComposition: central subject on a dark gradient backdrop, soft rim lighting, negative space top-right for category badge overlay.\nSubject: a glowing anvil forging a precise blueprint grid, with hairline gap-fissures detected and highlighted along the grid edges and small spec-fragment shards orbiting in formation overhead.\nMood: precise, generative.",
-      "links": {
-        "deployedSite": "https://specforge-woad.vercel.app"
-      }
+      "links": {}
     },
     {
       "slug": "accessbrowse",
